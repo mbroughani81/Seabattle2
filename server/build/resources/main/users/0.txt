@@ -1,0 +1,9 @@
+{
+  "id": 0,
+  "username": "mb",
+  "password": "1381",
+  "lastOnline": "21::Jun::2021 16::55::04",
+  "win": 1,
+  "lose": 0,
+  "score": 1
+}
