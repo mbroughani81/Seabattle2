@@ -113,4 +113,8 @@ public class ClientThread extends Thread implements RequestHandler {
     public void setSide(Side side) {
         this.side = side;
     }
+
+    public UserData getUserData() {
+        return userData;
+    }
 }

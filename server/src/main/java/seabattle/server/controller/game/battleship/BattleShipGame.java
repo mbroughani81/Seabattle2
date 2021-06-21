@@ -13,14 +13,18 @@ public class BattleShipGame implements Game {
     Side sideToTurn;
     int width;
     int height;
+    String username1;
+    String username2;
 
 //    int cnt = 0;
 
-    public BattleShipGame(int width, int height) {
+    public BattleShipGame(int width, int height, String username1, String username2) {
         this.gameState = new GameState(width, height);
         this.sideToTurn = Side.PLAYER_ONE;
         this.width = width;
         this.height = height;
+        this.username1 = username1;
+        this.username2 = username2;
     }
 
     @Override
@@ -50,7 +54,12 @@ public class BattleShipGame implements Game {
 
     @Override
     public Board getBoard(int id, Side reciever) {
-        Board board = new Board(width, height);
+        Board board = new Board(
+                width,
+                height,
+                (id == 1) ? getUsername1() : getUsername2(),
+                id == sideToTurn.getIndex()
+        );
         Cell[][] playerCells = gameState.getPlayerCells(id);
         for (int i = 0; i < height; i++) {
             for (int t = 0; t < width; t++) {
@@ -199,5 +208,13 @@ public class BattleShipGame implements Game {
                 }
             }
         }
+    }
+
+    public String getUsername1() {
+        return username1;
+    }
+
+    public String getUsername2() {
+        return username2;
     }
 }

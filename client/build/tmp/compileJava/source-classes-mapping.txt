@@ -4,8 +4,8 @@ seabattle/client/config/MainConfig.java
  seabattle.client.config.MainConfig
 seabattle/client/graphic/graphiclistener/StringInvoker.java
  seabattle.client.graphic.graphiclistener.StringInvoker
-seabattle/client/graphic/authentication/view/MainPanel.java
- seabattle.client.graphic.authentication.view.MainPanel
+seabattle/client/GraphicalAgent.java
+ seabattle.client.GraphicalAgent
 seabattle/client/config/SocketConfig.java
  seabattle.client.config.SocketConfig
 seabattle/client/graphic/mainmenu/MainMenuWindow.java
@@ -28,12 +28,12 @@ seabattle/client/graphic/AbstractPanel.java
  seabattle.client.graphic.AbstractPanel
 seabattle/client/graphic/MyFrame.java
  seabattle.client.graphic.MyFrame
-seabattle/client/graphic/game/GameWindow.java
- seabattle.client.graphic.game.GameWindow
-seabattle/client/graphic/authentication/view/event/NewUserEvent.java
- seabattle.client.graphic.authentication.view.event.NewUserEvent
-seabattle/client/graphic/authentication/view/listener/NewUserEventListener.java
- seabattle.client.graphic.authentication.view.listener.NewUserEventListener
+seabattle/client/graphic/authentication/view/MainPanel.java
+ seabattle.client.graphic.authentication.view.MainPanel
+seabattle/client/listener/MainResponseHandler.java
+ seabattle.client.listener.MainResponseHandler
+seabattle/client/Client.java
+ seabattle.client.Client
 seabattle/client/graphic/mainmenu/view/MainMenuFrame.java
  seabattle.client.graphic.mainmenu.view.MainMenuFrame
 seabattle/client/graphic/authentication/view/listener/NewUserEventInvoker.java
@@ -58,13 +58,13 @@ seabattle/client/listener/RequestSender.java
  seabattle.client.listener.RequestSender
 seabattle/client/graphic/authentication/view/SignupPanel.java
  seabattle.client.graphic.authentication.view.SignupPanel
+seabattle/client/graphic/authentication/view/event/NewUserEvent.java
+ seabattle.client.graphic.authentication.view.event.NewUserEvent
+seabattle/client/graphic/authentication/view/listener/NewUserEventListener.java
+ seabattle.client.graphic.authentication.view.listener.NewUserEventListener
+seabattle/client/graphic/game/GameWindow.java
+ seabattle.client.graphic.game.GameWindow
 seabattle/client/graphic/game/view/GamePanel.java
  seabattle.client.graphic.game.view.GamePanel
  seabattle.client.graphic.game.view.GamePanel$1
  seabattle.client.graphic.game.view.GamePanel$2
-seabattle/client/GraphicalAgent.java
- seabattle.client.GraphicalAgent
-seabattle/client/listener/MainResponseHandler.java
- seabattle.client.listener.MainResponseHandler
-seabattle/client/Client.java
- seabattle.client.Client
