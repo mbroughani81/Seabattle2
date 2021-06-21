@@ -59,7 +59,7 @@ public class AuthenticationWindow implements StringInvoker {
             public void run(NewUserEvent event) {
                 //listener.listen(new NewUser(event.getUsername(), event.getPassword(), event.getRegisterTime()));
                 System.out.println("ok! authwindow");
-                listener.listen(new UserLogin(event.getUsername()));
+                listener.listen(new UserLogin(event.getUsername(), event.getPassword()));
             }
         });
         authFrame.setContentPane(loginPanel);;

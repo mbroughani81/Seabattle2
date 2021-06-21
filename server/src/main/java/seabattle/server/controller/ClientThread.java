@@ -78,11 +78,14 @@ public class ClientThread extends Thread implements RequestHandler {
     @Override
     public Response loginUser(UserLogin userLogin) {
         if (userController.getUserId(userLogin.getUsername()) == -1)
-            return new NewMessage("Login not successful");
+            return new UserLoginResponse(userLogin.getUsername(), -1);
+        if (!userController.isPasswordOk(userLogin.getUsername(), userLogin.getPassword())) {
+            return new UserLoginResponse(userLogin.getUsername(), -2);
+        }
         userData = new UserData(userLogin.getUsername());
         sessionController.loginUser(userController.getUserId(userLogin.getUsername()));
         userController.updateLastOnline(userLogin.getUsername());
-        return new UserLoginResponse(userLogin.getUsername());
+        return new UserLoginResponse(userLogin.getUsername(), 0);
     }
 
     @Override

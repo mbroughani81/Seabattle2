@@ -48,18 +48,30 @@ public class GraphicalAgent {
         this.gameWindow.updateBoard(board, id);
     }
 
-    public void newUserRegistered() {
-        authenticationWindow.deactivate();
-        authenticationWindow = new AuthenticationWindow(listener);
-        mainMenuWindow.initialize();
+    public void newUserRegistered(int verdict) {
+        if (verdict == -1) {
+            System.out.println("Username already userd GraphicalAgent");
+        } else {
+            authenticationWindow.deactivate();
+            authenticationWindow = new AuthenticationWindow(listener);
+//        mainMenuWindow.initialize();
+            authenticationWindow.initialize();
+        }
     }
 
-    public void userLoggedIn(UserData userData) {
-        this.userData = userData;
-        mainMenuWindow.setUserData(userData);
-        authenticationWindow.deactivate();;
-        authenticationWindow = new AuthenticationWindow(listener);
-        mainMenuWindow.initialize();
+    public void userLoggedIn(UserData userData, int verdict) {
+        if (verdict == -1) {
+            System.out.println("Wrong username GraphicalAgent");
+        } else
+        if (verdict == -2) {
+            System.out.println("Wrong password GraphicalAgent");
+        } else {
+            this.userData = userData;
+            mainMenuWindow.setUserData(userData);
+            authenticationWindow.deactivate();
+            authenticationWindow = new AuthenticationWindow(listener);
+            mainMenuWindow.initialize();
+        }
     }
 
     public void showPlayerInfo(String info) {

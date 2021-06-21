@@ -78,6 +78,13 @@ public class UserController extends AbstractController {
 //        return s.toString();
     }
 
+    public boolean isPasswordOk(String username, String password) {
+        if (getUserId(username) == -1)
+            return false;
+        User user = getUser(username);
+        return user.getPassword().equals(password);
+    }
+
     private boolean checkOnline(LocalDateTime time) {
         long delta = ChronoUnit.SECONDS.between(time, LocalDateTime.now());
         return delta < 30;

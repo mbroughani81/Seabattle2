@@ -63,17 +63,13 @@ public class MainResponseHandler implements ResponseHandler {
 
     @Override
     public void checkNewUserResponse(NewUserResponse newUserResponse) {
-        if (newUserResponse.getVerdict() == 0) {
-            graphicalAgent.newUserRegistered();
-        } else {
-            System.out.println("Login failed MainResponseHandler");
-        }
+        graphicalAgent.newUserRegistered(newUserResponse.getVerdict());
     }
 
     @Override
     public void checkUserLoginResponse(UserLoginResponse userLoginResponse) {
         userData = new UserData(userLoginResponse.getUsername());
-        graphicalAgent.userLoggedIn(userData);
+        graphicalAgent.userLoggedIn(userData, userLoginResponse.getVerdict());
     }
 
     @Override
