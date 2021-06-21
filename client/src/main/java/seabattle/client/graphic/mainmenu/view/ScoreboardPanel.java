@@ -17,8 +17,9 @@ public class ScoreboardPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
         setPreferredSize(new Dimension(500, 500));
 
-        test = new JTextArea("gooz");
+        test = new JTextArea("Loading...");
         test.setPreferredSize(new Dimension(200, 200));
+        test.setFont(new Font(null, Font.BOLD, 20));
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(test, gbc);

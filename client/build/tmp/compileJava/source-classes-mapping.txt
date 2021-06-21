@@ -8,10 +8,8 @@ seabattle/client/GraphicalAgent.java
  seabattle.client.GraphicalAgent
 seabattle/client/config/SocketConfig.java
  seabattle.client.config.SocketConfig
-seabattle/client/graphic/mainmenu/MainMenuWindow.java
- seabattle.client.graphic.mainmenu.MainMenuWindow
- seabattle.client.graphic.mainmenu.MainMenuWindow$1
- seabattle.client.graphic.mainmenu.MainMenuWindow$2
+seabattle/client/graphic/game/GameWindow.java
+ seabattle.client.graphic.game.GameWindow
 seabattle/client/listener/network/SocketRequestSender.java
  seabattle.client.listener.network.SocketRequestSender
 seabattle/client/listener/UserData.java
@@ -22,8 +20,10 @@ seabattle/client/graphic/mainmenu/view/MainMenuPanel.java
  seabattle.client.graphic.mainmenu.view.MainMenuPanel$2
  seabattle.client.graphic.mainmenu.view.MainMenuPanel$3
  seabattle.client.graphic.mainmenu.view.MainMenuPanel$4
-seabattle/client/graphic/mainmenu/view/ScoreboardPanel.java
- seabattle.client.graphic.mainmenu.view.ScoreboardPanel
+seabattle/client/graphic/game/view/GamePanel.java
+ seabattle.client.graphic.game.view.GamePanel
+ seabattle.client.graphic.game.view.GamePanel$1
+ seabattle.client.graphic.game.view.GamePanel$2
 seabattle/client/graphic/AbstractPanel.java
  seabattle.client.graphic.AbstractPanel
 seabattle/client/graphic/MyFrame.java
@@ -62,9 +62,9 @@ seabattle/client/graphic/authentication/view/event/NewUserEvent.java
  seabattle.client.graphic.authentication.view.event.NewUserEvent
 seabattle/client/graphic/authentication/view/listener/NewUserEventListener.java
  seabattle.client.graphic.authentication.view.listener.NewUserEventListener
-seabattle/client/graphic/game/GameWindow.java
- seabattle.client.graphic.game.GameWindow
-seabattle/client/graphic/game/view/GamePanel.java
- seabattle.client.graphic.game.view.GamePanel
- seabattle.client.graphic.game.view.GamePanel$1
- seabattle.client.graphic.game.view.GamePanel$2
+seabattle/client/graphic/mainmenu/view/ScoreboardPanel.java
+ seabattle.client.graphic.mainmenu.view.ScoreboardPanel
+seabattle/client/graphic/mainmenu/MainMenuWindow.java
+ seabattle.client.graphic.mainmenu.MainMenuWindow
+ seabattle.client.graphic.mainmenu.MainMenuWindow$1
+ seabattle.client.graphic.mainmenu.MainMenuWindow$2
