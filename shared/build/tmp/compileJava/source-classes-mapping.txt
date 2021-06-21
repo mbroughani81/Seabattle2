@@ -14,6 +14,10 @@ seabattle/shared/game/ScoreboardRecord.java
  seabattle.shared.game.ScoreboardRecord
 seabattle/shared/game/BoardCell.java
  seabattle.shared.game.BoardCell
+seabattle/shared/authtoken/AuthToken.java
+ seabattle.shared.authtoken.AuthToken
+seabattle/shared/game/Board.java
+ seabattle.shared.game.Board
 seabattle/shared/request/RequestListener.java
  seabattle.shared.request.RequestListener
 seabattle/shared/request/GetScoreboard.java
@@ -26,8 +30,6 @@ seabattle/shared/request/Request.java
  seabattle.shared.request.Request
 seabattle/shared/response/GetPlayerInfoResponse.java
  seabattle.shared.response.GetPlayerInfoResponse
-seabattle/shared/game/Board.java
- seabattle.shared.game.Board
 seabattle/shared/request/GetPlayerInfo.java
  seabattle.shared.request.GetPlayerInfo
 seabattle/shared/response/GetScoreboardResponse.java

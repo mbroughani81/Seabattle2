@@ -2,6 +2,7 @@ package seabattle.client.listener;
 
 import seabattle.client.GraphicalAgent;
 import seabattle.client.listener.network.SocketRequestSender;
+import seabattle.shared.authtoken.AuthToken;
 import seabattle.shared.game.Board;
 import seabattle.shared.loop.Loop;
 import seabattle.shared.request.Request;
@@ -16,12 +17,14 @@ public class MainResponseHandler implements ResponseHandler {
     private final Loop loop;
     private final GraphicalAgent graphicalAgent;
     private UserData userData;
+    private AuthToken authToken;
 
     public MainResponseHandler(SocketRequestSender sender) {
         this.sender = sender;
         this.requests = new LinkedList<>();
         this.loop = new Loop(10, this::sendRequests);
         this.graphicalAgent = new GraphicalAgent(this::addRequest);
+        this.authToken = null;
     }
 
     public void start() {
@@ -36,10 +39,12 @@ public class MainResponseHandler implements ResponseHandler {
             requests.clear();
         }
         for (Request request : temp) {
+            request.setAuthToken(authToken);
             Response response = sender.send(request);
             if (response == null) {
                 System.out.println("shit is null! MainResponseHandler");
             } else {
+
                 response.handle(this);
             }
         }
@@ -68,6 +73,9 @@ public class MainResponseHandler implements ResponseHandler {
 
     @Override
     public void checkUserLoginResponse(UserLoginResponse userLoginResponse) {
+        if (userLoginResponse.getVerdict() == 0) {
+            authToken = userLoginResponse.getAuthToken();
+        }
         userData = new UserData(userLoginResponse.getUsername());
         graphicalAgent.userLoggedIn(userData, userLoginResponse.getVerdict());
     }

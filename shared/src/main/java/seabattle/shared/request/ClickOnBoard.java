@@ -1,5 +1,6 @@
 package seabattle.shared.request;
 
+import seabattle.shared.authtoken.AuthToken;
 import seabattle.shared.response.Response;
 
 public class ClickOnBoard implements Request {
@@ -7,6 +8,7 @@ public class ClickOnBoard implements Request {
     int row;
     int col;
     int id;
+    AuthToken authToken;
 
     public ClickOnBoard(int row, int col, int id) {
         this.row = row;
@@ -17,6 +19,16 @@ public class ClickOnBoard implements Request {
     @Override
     public Response handle(RequestHandler requestHandler) {
         return requestHandler.clickOnBoard(this);
+    }
+
+    @Override
+    public void setAuthToken(AuthToken authToken) {
+        this.authToken = authToken;
+    }
+
+    @Override
+    public AuthToken getAuthToken() {
+        return authToken;
     }
 
     public int getRow() {

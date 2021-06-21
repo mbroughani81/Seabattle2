@@ -6,8 +6,11 @@ import seabattle.server.controller.game.Game;
 import seabattle.server.controller.game.GameLobby;
 import seabattle.server.model.Side;
 import seabattle.server.model.User;
+import seabattle.shared.authtoken.AuthToken;
 import seabattle.shared.request.*;
 import seabattle.shared.response.*;
+
+import java.util.Random;
 
 public class ClientThread extends Thread implements RequestHandler {
 
@@ -19,6 +22,7 @@ public class ClientThread extends Thread implements RequestHandler {
     private UserController userController = new UserController();
     private SessionController sessionController = new SessionController();
     private UserData userData;
+    private AuthToken authToken;
 
     public ClientThread(ResponseSender sender, GameLobby gameLobby) {
         this.sender = sender;
@@ -34,7 +38,14 @@ public class ClientThread extends Thread implements RequestHandler {
     @Override
     public void run() {
         while (running) {
-            sender.sendResponse(sender.getRequest().handle(this));
+            Request request = sender.getRequest();
+            if (authToken != null) {
+                if (request.getAuthToken().getVal() != authToken.getVal()) {
+                    sender.sendResponse(new NullResponse());
+                    continue;
+                }
+            }
+            sender.sendResponse(request.handle(this));
         }
         sender.close();
     }
@@ -78,14 +89,16 @@ public class ClientThread extends Thread implements RequestHandler {
     @Override
     public Response loginUser(UserLogin userLogin) {
         if (userController.getUserId(userLogin.getUsername()) == -1)
-            return new UserLoginResponse(userLogin.getUsername(), -1);
+            return new UserLoginResponse(userLogin.getUsername(), -1, null);
         if (!userController.isPasswordOk(userLogin.getUsername(), userLogin.getPassword())) {
-            return new UserLoginResponse(userLogin.getUsername(), -2);
+            return new UserLoginResponse(userLogin.getUsername(), -2, null);
         }
         userData = new UserData(userLogin.getUsername());
         sessionController.loginUser(userController.getUserId(userLogin.getUsername()));
         userController.updateLastOnline(userLogin.getUsername());
-        return new UserLoginResponse(userLogin.getUsername(), 0);
+        Random rand = new Random();
+        authToken = new AuthToken(rand.nextLong());
+        return new UserLoginResponse(userLogin.getUsername(), 0, authToken);
     }
 
     @Override

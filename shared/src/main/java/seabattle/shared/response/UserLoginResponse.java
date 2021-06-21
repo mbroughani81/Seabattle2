@@ -1,13 +1,17 @@
 package seabattle.shared.response;
 
+import seabattle.shared.authtoken.AuthToken;
+
 public class UserLoginResponse implements Response {
 
     String username;
     int verdict;
+    AuthToken authToken;
 
-    public UserLoginResponse(String username, int verdict) {
+    public UserLoginResponse(String username, int verdict, AuthToken authToken) {
         this.username = username;
         this.verdict = verdict;
+        this.authToken = authToken;
     }
 
     @Override
@@ -29,5 +33,13 @@ public class UserLoginResponse implements Response {
 
     public void setVerdict(int verdict) {
         this.verdict = verdict;
+    }
+
+    public AuthToken getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(AuthToken authToken) {
+        this.authToken = authToken;
     }
 }
