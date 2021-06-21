@@ -46,10 +46,13 @@ public class SignupPanel extends AbstractPanel implements StringInvoker, ActionL
         loginButton.setPreferredSize(new Dimension(70, 40));
         loginButton.addActionListener(this);
         errorLabel = new JLabel();
+        errorLabel.setFont(new Font(null, Font.ITALIC, 20));
+        errorLabel.setForeground(Color.WHITE);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
         JLabel usernameLabel = new JLabel("username : ");
+        usernameLabel.setForeground(Color.WHITE);
         usernameLabel.setPreferredSize(new Dimension(200, 40));
         this.add(usernameLabel, gbc);
 
@@ -60,6 +63,7 @@ public class SignupPanel extends AbstractPanel implements StringInvoker, ActionL
         gbc.gridx = 0;
         gbc.gridy = 1;
         JLabel passwordLabel = new JLabel("password : ");
+        passwordLabel.setForeground(Color.WHITE);
         passwordLabel.setPreferredSize(new Dimension(200, 40));
         this.add(passwordLabel, gbc);
 
@@ -113,5 +117,10 @@ public class SignupPanel extends AbstractPanel implements StringInvoker, ActionL
         if (e.getSource() == signupButton) {
             checkNewUserEventListener(new NewUserEvent(username.getText(), password.getText(), LocalDateTime.now()));
         }
+    }
+
+    @Override
+    public void showError(String s) {
+        errorLabel.setText(s);
     }
 }

@@ -45,6 +45,7 @@ public class LoginPanel extends AbstractPanel implements StringInvoker, ActionLi
         loginButton.setPreferredSize(new Dimension(70, 40));
         loginButton.addActionListener(this);
         errorLabel = new JLabel();
+        errorLabel.setFont(new Font(null, Font.ITALIC, 20));
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -119,4 +120,8 @@ public class LoginPanel extends AbstractPanel implements StringInvoker, ActionLi
     }
 
 
+    @Override
+    public void showError(String s) {
+        errorLabel.setText(s);
+    }
 }

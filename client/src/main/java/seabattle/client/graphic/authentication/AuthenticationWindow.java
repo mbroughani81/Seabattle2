@@ -87,6 +87,18 @@ public class AuthenticationWindow implements StringInvoker {
         panels.put(PanelType.SIGNUP_PANEL, signupPanel);
     }
 
+    public void showSignupError(String error) {
+        if (panels.get(PanelType.SIGNUP_PANEL) != null) {
+            panels.get(PanelType.SIGNUP_PANEL).showError(error);
+        }
+    }
+
+    public void showLoginError(String error) {
+        if (panels.get(PanelType.LOGIN_PANEL) != null) {
+            panels.get(PanelType.LOGIN_PANEL).showError(error);
+        }
+    }
+
     @Override
     public void addStringListener(StringListener listener) {
         stringListeners.add(listener);

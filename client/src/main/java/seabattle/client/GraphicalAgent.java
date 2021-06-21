@@ -50,7 +50,8 @@ public class GraphicalAgent {
 
     public void newUserRegistered(int verdict) {
         if (verdict == -1) {
-            System.out.println("Username already userd GraphicalAgent");
+//            System.out.println("Username already userd GraphicalAgent");
+            authenticationWindow.showSignupError("Username already used.");
         } else {
             authenticationWindow.deactivate();
             authenticationWindow = new AuthenticationWindow(listener);
@@ -61,10 +62,12 @@ public class GraphicalAgent {
 
     public void userLoggedIn(UserData userData, int verdict) {
         if (verdict == -1) {
-            System.out.println("Wrong username GraphicalAgent");
+//            System.out.println("Wrong username GraphicalAgent");
+            authenticationWindow.showLoginError("Username not found.");
         } else
         if (verdict == -2) {
-            System.out.println("Wrong password GraphicalAgent");
+//            System.out.println("Wrong password GraphicalAgent");
+            authenticationWindow.showLoginError("Password is not correct.");
         } else {
             this.userData = userData;
             mainMenuWindow.setUserData(userData);
