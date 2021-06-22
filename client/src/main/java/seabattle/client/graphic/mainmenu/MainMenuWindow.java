@@ -3,9 +3,7 @@ package seabattle.client.graphic.mainmenu;
 import seabattle.client.graphic.authentication.view.LoginPanel;
 import seabattle.client.graphic.graphiclistener.StringInvoker;
 import seabattle.client.graphic.graphiclistener.StringListener;
-import seabattle.client.graphic.mainmenu.view.MainMenuFrame;
-import seabattle.client.graphic.mainmenu.view.MainMenuPanel;
-import seabattle.client.graphic.mainmenu.view.ScoreboardPanel;
+import seabattle.client.graphic.mainmenu.view.*;
 import seabattle.client.listener.UserData;
 import seabattle.shared.game.ScoreboardRecord;
 import seabattle.shared.game.SpectateListRecord;
@@ -22,6 +20,8 @@ public class MainMenuWindow implements StringInvoker {
     private final JFrame mainMenuFrame;
     private MainMenuPanel mainMenuPanel;
     private ScoreboardPanel scoreboardPanel;
+    private SpectateListPanel spectateListPanel;
+    private SpectateGamePanel spectateGamePanel;
     private UserData userData;
     private Loop scoreboardLoop;
     private Loop spectateListLoop;
@@ -35,6 +35,8 @@ public class MainMenuWindow implements StringInvoker {
         this.mainMenuFrame = new MainMenuFrame();
         this.mainMenuPanel = null;
         this.scoreboardPanel = new ScoreboardPanel();
+        this.spectateListPanel = new SpectateListPanel();
+        this.spectateGamePanel = new SpectateGamePanel();
         this.scoreboardLoop = new Loop(1, this::sendGetScoreboard);
         this.spectateListLoop = new Loop(1, this::sendGetSpectateList);
         this.updateLastSeenLoop = new Loop(1, this::sendUpdateLastSeen);
@@ -87,11 +89,6 @@ public class MainMenuWindow implements StringInvoker {
     }
 
     public void showScoreboard() {
-//        JOptionPane.showMessageDialog(null, info);
-        LoginPanel loginPanel = new LoginPanel(listener);
-//        loginPanel.setSize(700, 700);
-//        loginPanel.setPreferredSize(new Dimension(700, 700));
-//        JOptionPane.showMessageDialog(null, loginPanel);
         if (scoreboardPanel.isWorking())
             return;
         Thread t1 = new Thread(new Runnable() {
@@ -135,11 +132,15 @@ public class MainMenuWindow implements StringInvoker {
     }
 
     public void showSpectateList() {
+        if (spectateGamePanel.isWorking())
+            return;
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
+                spectateListPanel.setWorking(true);
                 spectateListLoop.start();
-                JOptionPane.showMessageDialog(null, "gooz");
+                JOptionPane.showMessageDialog(null, spectateListPanel);
+                spectateListPanel.setWorking(false);
                 spectateListLoop.stop();
                 spectateListLoop = new Loop(1, MainMenuWindow.this::sendUpdateLastSeen);
             }
@@ -148,9 +149,6 @@ public class MainMenuWindow implements StringInvoker {
     }
 
     public void updateSpectateList(SpectateListRecord[] records) {
-        System.out.println("Here is the record : MainMenuWindow");
-        for (SpectateListRecord record : records) {
-            System.out.println("MainMenuWindow " + record.getUsername1() + " " + record.getUsername2());
-        }
+        spectateListPanel.updateScoreboard(records);
     }
 }
