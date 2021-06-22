@@ -130,4 +130,17 @@ public class MainMenuWindow implements StringInvoker {
         this.userData = userData;
     }
 
+    public void showSpectateList() {
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                JOptionPane.showMessageDialog(null, "gooz");
+            }
+        });
+        t1.start();
+    }
+
+    public void updateSpectateList(String info) {
+        System.out.println("shit to update! mainmenuwindow");
+    }
 }

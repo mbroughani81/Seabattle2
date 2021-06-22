@@ -101,4 +101,13 @@ public class MainResponseHandler implements ResponseHandler {
             graphicalAgent.updateScoreboard(getScoreboardResponse.getRecords());
         }
     }
+
+    @Override
+    public void checkGetSpectateListResponse(GetSpectateListResponse getSpectateListResponse) {
+        if (getSpectateListResponse.isOpen()) {
+            graphicalAgent.showSpectateList();
+        } else {
+            graphicalAgent.updateSpectateList(getSpectateListResponse.getInfo());
+        }
+    }
 }

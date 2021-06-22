@@ -97,6 +97,14 @@ public class GraphicalAgent {
         mainMenuWindow.updateScoreboard(scoreboardRecords);
     }
 
+    public void showSpectateList() {
+        mainMenuWindow.showSpectateList();
+    }
+
+    public void updateSpectateList(String info) {
+        mainMenuWindow.updateSpectateList(info);
+    }
+
     private void mainMenuAction(String s) {
         if (s.equals("NewGameChosen")) {
             mainMenuWindow.deactivate();

@@ -10,4 +10,5 @@ public interface ResponseHandler {
     void checkGetPlayerInfoResponse(GetPlayerInfoResponse getPlayerInfoResponse);
     void checkEndGameResponse(EndGame endGame);
     void checkGetScoreboardResponse(GetScoreboardResponse getScoreboardResponse);
+    void checkGetSpectateListResponse(GetSpectateListResponse getSpectateListResponse);
 }

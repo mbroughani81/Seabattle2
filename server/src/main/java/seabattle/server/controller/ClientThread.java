@@ -69,6 +69,7 @@ public class ClientThread extends Thread implements RequestHandler {
             } else {
                 userController.addScore(userData.getUsername(), -1);
             }
+            gameLobby.removeGame(game);
             game = null;
             return new EndGame();
         }
@@ -118,6 +119,13 @@ public class ClientThread extends Thread implements RequestHandler {
         userController.updateLastOnline(updateLastSeen.getUsername());
         return new NullResponse();
     }
+
+    @Override
+    public Response getSpectateList(GetSpectateList getSpectateList) {
+        return new GetSpectateListResponse(gameLobby.getSpectateList(), getSpectateList.isOpen());
+    }
+
+
 
     public void setGame(Game game) {
         this.game = game;

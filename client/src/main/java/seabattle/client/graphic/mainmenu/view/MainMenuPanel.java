@@ -5,6 +5,7 @@ import seabattle.client.graphic.graphiclistener.StringListener;
 import seabattle.client.listener.UserData;
 import seabattle.shared.request.GetPlayerInfo;
 import seabattle.shared.request.GetScoreboard;
+import seabattle.shared.request.GetSpectateList;
 import seabattle.shared.request.RequestListener;
 
 import javax.swing.*;
@@ -50,7 +51,7 @@ public class MainMenuPanel extends JPanel implements StringInvoker {
         spectateGamesBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                listener.listen(new GetSpectateList(true));
             }
         });
         spectateGamesBtn.setPreferredSize(new Dimension(400, 70));

@@ -1,62 +1,66 @@
-seabattle/shared/gson/Deserializer.java
- seabattle.shared.gson.Deserializer
-seabattle/shared/datatype/Pair.java
- seabattle.shared.datatype.Pair
-seabattle/shared/gson/LocalDateTimeSerializer.java
- seabattle.shared.gson.LocalDateTimeSerializer
-seabattle/shared/gson/LocalDateTimeDeserializer.java
- seabattle.shared.gson.LocalDateTimeDeserializer
-seabattle/shared/loop/Loop.java
- seabattle.shared.loop.Loop
-seabattle/shared/gson/Serializer.java
- seabattle.shared.gson.Serializer
 seabattle/shared/game/ScoreboardRecord.java
  seabattle.shared.game.ScoreboardRecord
-seabattle/shared/game/BoardCell.java
- seabattle.shared.game.BoardCell
 seabattle/shared/authtoken/AuthToken.java
  seabattle.shared.authtoken.AuthToken
 seabattle/shared/game/Board.java
  seabattle.shared.game.Board
+seabattle/shared/gson/LocalDateTimeDeserializer.java
+ seabattle.shared.gson.LocalDateTimeDeserializer
+seabattle/shared/gson/LocalDateTimeSerializer.java
+ seabattle.shared.gson.LocalDateTimeSerializer
+seabattle/shared/gson/Serializer.java
+ seabattle.shared.gson.Serializer
+seabattle/shared/datatype/Pair.java
+ seabattle.shared.datatype.Pair
+seabattle/shared/loop/Loop.java
+ seabattle.shared.loop.Loop
+seabattle/shared/gson/Deserializer.java
+ seabattle.shared.gson.Deserializer
+seabattle/shared/game/BoardCell.java
+ seabattle.shared.game.BoardCell
+seabattle/shared/response/GetSpectateListResponse.java
+ seabattle.shared.response.GetSpectateListResponse
+seabattle/shared/response/NullResponse.java
+ seabattle.shared.response.NullResponse
+seabattle/shared/response/NewMessage.java
+ seabattle.shared.response.NewMessage
+seabattle/shared/response/ResponseHandler.java
+ seabattle.shared.response.ResponseHandler
+seabattle/shared/response/Response.java
+ seabattle.shared.response.Response
+seabattle/shared/response/GetPlayerInfoResponse.java
+ seabattle.shared.response.GetPlayerInfoResponse
+seabattle/shared/response/NewUserResponse.java
+ seabattle.shared.response.NewUserResponse
+seabattle/shared/response/GetScoreboardResponse.java
+ seabattle.shared.response.GetScoreboardResponse
+seabattle/shared/response/EndGame.java
+ seabattle.shared.response.EndGame
+seabattle/shared/response/UpdateBoard.java
+ seabattle.shared.response.UpdateBoard
+seabattle/shared/response/UserLoginResponse.java
+ seabattle.shared.response.UserLoginResponse
 seabattle/shared/request/RequestListener.java
  seabattle.shared.request.RequestListener
 seabattle/shared/request/GetScoreboard.java
  seabattle.shared.request.GetScoreboard
 seabattle/shared/request/StartGame.java
  seabattle.shared.request.StartGame
-seabattle/shared/response/ResponseHandler.java
- seabattle.shared.response.ResponseHandler
 seabattle/shared/request/Request.java
  seabattle.shared.request.Request
-seabattle/shared/response/GetPlayerInfoResponse.java
- seabattle.shared.response.GetPlayerInfoResponse
-seabattle/shared/request/GetPlayerInfo.java
- seabattle.shared.request.GetPlayerInfo
-seabattle/shared/response/GetScoreboardResponse.java
- seabattle.shared.response.GetScoreboardResponse
-seabattle/shared/response/EndGame.java
- seabattle.shared.response.EndGame
-seabattle/shared/request/UpdateLastSeen.java
- seabattle.shared.request.UpdateLastSeen
-seabattle/shared/response/UserLoginResponse.java
- seabattle.shared.response.UserLoginResponse
-seabattle/shared/request/RequestHandler.java
- seabattle.shared.request.RequestHandler
-seabattle/shared/response/NullResponse.java
- seabattle.shared.response.NullResponse
-seabattle/shared/response/NewMessage.java
- seabattle.shared.response.NewMessage
 seabattle/shared/request/UserLogin.java
  seabattle.shared.request.UserLogin
-seabattle/shared/response/NewUserResponse.java
- seabattle.shared.response.NewUserResponse
+seabattle/shared/request/GetPlayerInfo.java
+ seabattle.shared.request.GetPlayerInfo
 seabattle/shared/request/GetBoard.java
  seabattle.shared.request.GetBoard
-seabattle/shared/response/UpdateBoard.java
- seabattle.shared.response.UpdateBoard
-seabattle/shared/response/Response.java
- seabattle.shared.response.Response
+seabattle/shared/request/UpdateLastSeen.java
+ seabattle.shared.request.UpdateLastSeen
 seabattle/shared/request/ClickOnBoard.java
  seabattle.shared.request.ClickOnBoard
 seabattle/shared/request/NewUser.java
  seabattle.shared.request.NewUser
+seabattle/shared/request/RequestHandler.java
+ seabattle.shared.request.RequestHandler
+seabattle/shared/request/GetSpectateList.java
+ seabattle.shared.request.GetSpectateList

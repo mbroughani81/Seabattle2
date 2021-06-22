@@ -1,7 +1,8 @@
-seabattle/server/controller/game/battleship/BattleShipGame.java
- seabattle.server.controller.game.battleship.BattleShipGame
-seabattle/server/controller/dbcontroller/SessionController.java
- seabattle.server.controller.dbcontroller.SessionController
+seabattle/server/controller/dbcontroller/UserController.java
+ seabattle.server.controller.dbcontroller.UserController
+ seabattle.server.controller.dbcontroller.UserController$1
+seabattle/server/controller/network/SocketResponseSender.java
+ seabattle.server.controller.network.SocketResponseSender
 seabattle/server/controller/game/battleship/RandomShip.java
  seabattle.server.controller.game.battleship.RandomShip
 seabattle/server/model/Side.java
@@ -18,18 +19,18 @@ seabattle/server/model/User.java
  seabattle.server.model.User
 seabattle/server/controller/UserData.java
  seabattle.server.controller.UserData
-seabattle/server/db/DBSet.java
- seabattle.server.db.DBSet
+seabattle/server/controller/game/GameLobby.java
+ seabattle.server.controller.game.GameLobby
 seabattle/server/controller/event/NewUserEvent.java
  seabattle.server.controller.event.NewUserEvent
 seabattle/server/config/SocketConfig.java
  seabattle.server.config.SocketConfig
-seabattle/server/db/UserDB.java
- seabattle.server.db.UserDB
-seabattle/server/controller/game/battleship/GameState.java
- seabattle.server.controller.game.battleship.GameState
-seabattle/server/controller/dbcontroller/AbstractController.java
- seabattle.server.controller.dbcontroller.AbstractController
+seabattle/server/controller/ResponseSender.java
+ seabattle.server.controller.ResponseSender
+seabattle/server/controller/ClientThread.java
+ seabattle.server.controller.ClientThread
+seabattle/server/controller/game/battleship/BattleShipGame.java
+ seabattle.server.controller.game.battleship.BattleShipGame
 seabattle/server/controller/game/Game.java
  seabattle.server.controller.game.Game
 seabattle/server/config/MainConfig.java
@@ -40,16 +41,15 @@ seabattle/server/controller/game/battleship/Cell.java
  seabattle.server.controller.game.battleship.Cell$2
 seabattle/server/db/Context.java
  seabattle.server.db.Context
-seabattle/server/controller/ResponseSender.java
- seabattle.server.controller.ResponseSender
-seabattle/server/controller/dbcontroller/UserController.java
- seabattle.server.controller.dbcontroller.UserController
- seabattle.server.controller.dbcontroller.UserController$1
-seabattle/server/controller/network/SocketResponseSender.java
- seabattle.server.controller.network.SocketResponseSender
-seabattle/server/controller/ClientThread.java
- seabattle.server.controller.ClientThread
-seabattle/server/controller/game/GameLobby.java
- seabattle.server.controller.game.GameLobby
+seabattle/server/db/UserDB.java
+ seabattle.server.db.UserDB
+seabattle/server/controller/dbcontroller/SessionController.java
+ seabattle.server.controller.dbcontroller.SessionController
+seabattle/server/controller/game/battleship/GameState.java
+ seabattle.server.controller.game.battleship.GameState
+seabattle/server/db/DBSet.java
+ seabattle.server.db.DBSet
+seabattle/server/controller/dbcontroller/AbstractController.java
+ seabattle.server.controller.dbcontroller.AbstractController
 seabattle/server/controller/SocketManager.java
  seabattle.server.controller.SocketManager
