@@ -8,11 +8,9 @@ import seabattle.client.graphic.mainmenu.view.MainMenuPanel;
 import seabattle.client.graphic.mainmenu.view.ScoreboardPanel;
 import seabattle.client.listener.UserData;
 import seabattle.shared.game.ScoreboardRecord;
+import seabattle.shared.game.SpectateListRecord;
 import seabattle.shared.loop.Loop;
-import seabattle.shared.request.GetScoreboard;
-import seabattle.shared.request.RequestListener;
-import seabattle.shared.request.StartGame;
-import seabattle.shared.request.UpdateLastSeen;
+import seabattle.shared.request.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +24,7 @@ public class MainMenuWindow implements StringInvoker {
     private ScoreboardPanel scoreboardPanel;
     private UserData userData;
     private Loop scoreboardLoop;
+    private Loop spectateListLoop;
     private Loop updateLastSeenLoop;
 
     LinkedList<StringListener> stringListeners = new LinkedList<>();
@@ -37,6 +36,7 @@ public class MainMenuWindow implements StringInvoker {
         this.mainMenuPanel = null;
         this.scoreboardPanel = new ScoreboardPanel();
         this.scoreboardLoop = new Loop(1, this::sendGetScoreboard);
+        this.spectateListLoop = new Loop(1, this::sendGetSpectateList);
         this.updateLastSeenLoop = new Loop(1, this::sendUpdateLastSeen);
         this.updateLastSeenLoop.start();
     }
@@ -117,6 +117,10 @@ public class MainMenuWindow implements StringInvoker {
         listener.listen(new GetScoreboard(false));
     }
 
+    private void sendGetSpectateList() {
+        listener.listen(new GetSpectateList(false));
+    }
+
     private void sendUpdateLastSeen() {
         if (userData != null)
             listener.listen(new UpdateLastSeen(userData.getUsername()));
@@ -134,13 +138,19 @@ public class MainMenuWindow implements StringInvoker {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
+                spectateListLoop.start();
                 JOptionPane.showMessageDialog(null, "gooz");
+                spectateListLoop.stop();
+                spectateListLoop = new Loop(1, MainMenuWindow.this::sendUpdateLastSeen);
             }
         });
         t1.start();
     }
 
-    public void updateSpectateList(String info) {
-        System.out.println("shit to update! mainmenuwindow");
+    public void updateSpectateList(SpectateListRecord[] records) {
+        System.out.println("Here is the record : MainMenuWindow");
+        for (SpectateListRecord record : records) {
+            System.out.println("MainMenuWindow " + record.getUsername1() + " " + record.getUsername2());
+        }
     }
 }

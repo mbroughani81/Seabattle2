@@ -15,6 +15,9 @@ public class BattleShipGame implements Game {
     int height;
     String username1;
     String username2;
+    int moveNumber;
+    int player1HitNumber;
+    int player2HitNumber;
 
 //    int cnt = 0;
 
@@ -38,6 +41,11 @@ public class BattleShipGame implements Game {
             return;
 //        cnt++;
         playerCells[row][col] = Cell.FULL;
+        moveNumber++;
+        if (side == Side.PLAYER_ONE)
+            player1HitNumber++;
+        else
+            player2HitNumber++;
         if (gameState.isBoat(row, col, id)) {
             checkBoats(id);
         } else {
@@ -216,5 +224,39 @@ public class BattleShipGame implements Game {
 
     public String getUsername2() {
         return username2;
+    }
+
+    public int getMoveNumber() {
+        return moveNumber;
+    }
+
+    public int getPlayerRemainingBoatNumber(int id) {
+        int remainingBoatNumber = 0;
+        for (int i = 0; i < 1; i++) {
+            if (!gameState.isBattleshipDestroyed(id, i))
+                remainingBoatNumber++;
+        }
+        for (int i = 0; i < 2; i++) {
+            if (!gameState.isCruiserDestroyed(2, i))
+                remainingBoatNumber++;
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!gameState.isDestroyerDestroyed(2, i))
+                remainingBoatNumber++;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (!gameState.isFrigateDestroyed(2, i))
+                remainingBoatNumber++;
+        }
+
+        return remainingBoatNumber;
+    }
+
+    public int getPlayerHitNumber(int id) {
+        if (id == 1) {
+            return player1HitNumber;
+        } else {
+            return player2HitNumber;
+        }
     }
 }

@@ -6,6 +6,7 @@ import seabattle.client.graphic.mainmenu.MainMenuWindow;
 import seabattle.client.listener.UserData;
 import seabattle.shared.game.Board;
 import seabattle.shared.game.ScoreboardRecord;
+import seabattle.shared.game.SpectateListRecord;
 import seabattle.shared.request.RequestListener;
 
 public class GraphicalAgent {
@@ -101,8 +102,8 @@ public class GraphicalAgent {
         mainMenuWindow.showSpectateList();
     }
 
-    public void updateSpectateList(String info) {
-        mainMenuWindow.updateSpectateList(info);
+    public void updateSpectateList(SpectateListRecord[] records) {
+        mainMenuWindow.updateSpectateList(records);
     }
 
     private void mainMenuAction(String s) {

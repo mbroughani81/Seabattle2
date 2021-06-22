@@ -107,7 +107,7 @@ public class MainResponseHandler implements ResponseHandler {
         if (getSpectateListResponse.isOpen()) {
             graphicalAgent.showSpectateList();
         } else {
-            graphicalAgent.updateSpectateList(getSpectateListResponse.getInfo());
+            graphicalAgent.updateSpectateList(getSpectateListResponse.getRecords());
         }
     }
 }

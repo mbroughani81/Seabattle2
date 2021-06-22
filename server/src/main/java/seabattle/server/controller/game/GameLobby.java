@@ -3,6 +3,7 @@ package seabattle.server.controller.game;
 import seabattle.server.controller.ClientThread;
 import seabattle.server.controller.game.battleship.BattleShipGame;
 import seabattle.server.model.Side;
+import seabattle.shared.game.SpectateListRecord;
 
 import java.util.LinkedList;
 
@@ -36,8 +37,20 @@ public class GameLobby {
         allGames.remove(game);
     }
 
-    public synchronized String getSpectateList() {
-        String info = "game here";
-        return info;
+    public synchronized SpectateListRecord[] getSpectateList() {
+        SpectateListRecord[] records = new SpectateListRecord[allGames.size()];
+        for (int i = 0; i < allGames.size(); i++) {
+            BattleShipGame game = (BattleShipGame) allGames.get(i);
+            records[i] = new SpectateListRecord(
+                    game.getUsername1(),
+                    game.getUsername2(),
+                    game.getMoveNumber(),
+                    game.getPlayerRemainingBoatNumber(1),
+                    game.getPlayerRemainingBoatNumber(2),
+                    game.getPlayerHitNumber(1),
+                    game.getPlayerHitNumber(2)
+            );
+        }
+        return records;
     }
 }

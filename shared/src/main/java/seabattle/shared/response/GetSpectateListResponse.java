@@ -1,12 +1,14 @@
 package seabattle.shared.response;
 
+import seabattle.shared.game.SpectateListRecord;
+
 public class GetSpectateListResponse implements Response {
 
-    String info;
+    SpectateListRecord[] records;
     boolean isOpen;
 
-    public GetSpectateListResponse(String info, boolean isOpen) {
-        this.info = info;
+    public GetSpectateListResponse(SpectateListRecord[] records, boolean isOpen) {
+        this.records = records;
         this.isOpen = isOpen;
     }
 
@@ -15,12 +17,12 @@ public class GetSpectateListResponse implements Response {
         responseHandler.checkGetSpectateListResponse(this);
     }
 
-    public String getInfo() {
-        return info;
+    public SpectateListRecord[] getRecords() {
+        return records;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setRecords(SpectateListRecord[] records) {
+        this.records = records;
     }
 
     public boolean isOpen() {
