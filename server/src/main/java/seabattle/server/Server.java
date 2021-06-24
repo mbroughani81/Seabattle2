@@ -3,13 +3,14 @@ package seabattle.server;
 import seabattle.server.controller.SocketManager;
 import seabattle.server.controller.dbcontroller.SessionController;
 import seabattle.server.controller.dbcontroller.UserController;
+import seabattle.shared.loop.Timer;
 import seabattle.shared.request.NewUser;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class Server {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         testData();
 
         SocketManager socketManager = new SocketManager();

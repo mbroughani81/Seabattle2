@@ -22,6 +22,7 @@ public class BattleShipGame implements Game {
     int player1HitNumber;
     int player2HitNumber;
 
+
 //    int cnt = 0;
 
     public BattleShipGame(int width, int height, String username1, String username2) {

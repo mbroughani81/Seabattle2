@@ -57,6 +57,7 @@ public class ClientThread extends Thread implements RequestHandler {
 //        return new NewMessage();
         gameLobby.startNewGame(this);
         return new NewMessage("new game started");
+
     }
 
     @Override

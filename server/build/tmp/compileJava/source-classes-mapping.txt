@@ -1,5 +1,6 @@
-seabattle/server/controller/SocketManager.java
- seabattle.server.controller.SocketManager
+seabattle/server/controller/dbcontroller/UserController.java
+ seabattle.server.controller.dbcontroller.UserController
+ seabattle.server.controller.dbcontroller.UserController$1
 seabattle/server/controller/dbcontroller/SessionController.java
  seabattle.server.controller.dbcontroller.SessionController
 seabattle/server/controller/game/battleship/RandomShip.java
@@ -11,8 +12,8 @@ seabattle/server/model/Side.java
  seabattle.server.model.Side$3
 seabattle/server/db/SessionDB.java
  seabattle.server.db.SessionDB
-seabattle/server/Server.java
- seabattle.server.Server
+seabattle/server/controller/network/SocketResponseSender.java
+ seabattle.server.controller.network.SocketResponseSender
 seabattle/server/model/Session.java
  seabattle.server.model.Session
 seabattle/server/model/User.java
@@ -39,18 +40,17 @@ seabattle/server/controller/game/battleship/Cell.java
  seabattle.server.controller.game.battleship.Cell
  seabattle.server.controller.game.battleship.Cell$1
  seabattle.server.controller.game.battleship.Cell$2
-seabattle/server/controller/ClientThread.java
- seabattle.server.controller.ClientThread
-seabattle/server/controller/ResponseSender.java
- seabattle.server.controller.ResponseSender
-seabattle/server/controller/dbcontroller/UserController.java
- seabattle.server.controller.dbcontroller.UserController
- seabattle.server.controller.dbcontroller.UserController$1
 seabattle/server/controller/game/Game.java
  seabattle.server.controller.game.Game
-seabattle/server/controller/network/SocketResponseSender.java
- seabattle.server.controller.network.SocketResponseSender
+seabattle/server/controller/ResponseSender.java
+ seabattle.server.controller.ResponseSender
+seabattle/server/controller/ClientThread.java
+ seabattle.server.controller.ClientThread
 seabattle/server/controller/game/battleship/BattleShipGame.java
  seabattle.server.controller.game.battleship.BattleShipGame
+seabattle/server/controller/SocketManager.java
+ seabattle.server.controller.SocketManager
 seabattle/server/controller/game/GameLobby.java
  seabattle.server.controller.game.GameLobby
+seabattle/server/Server.java
+ seabattle.server.Server
