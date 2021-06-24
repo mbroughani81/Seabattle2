@@ -121,6 +121,16 @@ public class BattleShipGame implements Game {
             board.setTimer(
                     (id == 1) ? player1placingTime.getRemainingSec() : player2placingTime.getRemainingSec()
             );
+            if (id == 1) {
+                if (player1placingTime.isFinished() && !player2placingTime.isFinished()) {
+                    board.setMessage("(Wait for other player)");
+                }
+            }
+            if (id == 2) {
+                if (player2placingTime.isFinished() && !player1placingTime.isFinished()) {
+                    board.setMessage("(Wait for other player)");
+                }
+            }
         }
         // chosed ones, black
         Cell[][] playerCells = gameState.getPlayerCells(id);

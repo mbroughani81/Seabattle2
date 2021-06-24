@@ -37,6 +37,8 @@ seabattle/server/controller/game/battleship/GameState.java
  seabattle.server.controller.game.battleship.GameState
 seabattle/server/config/MainConfig.java
  seabattle.server.config.MainConfig
+seabattle/server/controller/SocketManager.java
+ seabattle.server.controller.SocketManager
 seabattle/server/controller/ClientThread.java
  seabattle.server.controller.ClientThread
 seabattle/server/controller/game/battleship/BattleShipGame.java
@@ -50,7 +52,5 @@ seabattle/server/controller/network/SocketResponseSender.java
  seabattle.server.controller.network.SocketResponseSender
 seabattle/server/controller/game/GameLobby.java
  seabattle.server.controller.game.GameLobby
-seabattle/server/controller/SocketManager.java
- seabattle.server.controller.SocketManager
 seabattle/server/controller/ResponseSender.java
  seabattle.server.controller.ResponseSender

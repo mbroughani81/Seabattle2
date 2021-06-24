@@ -122,7 +122,7 @@ public class GamePanel extends JPanel {
     private void setBoard1Label() {
         board1Label = new JLabel("salam1");
         board1Label.setOpaque(true);
-        board1Label.setFont(new Font(null, Font.ITALIC, 20));
+        board1Label.setFont(new Font(null, Font.ITALIC, 15));
         board1Label.setSize(200, 70);
         board1Label.setBounds(10, 410, 200, 70);
     }
@@ -131,6 +131,9 @@ public class GamePanel extends JPanel {
         board1Label.setText(board.getPlayerUsername());
         if (board.getTimer() > 0) {
             board1Label.setText(board1Label.getText() + " " + board.getTimer());
+        }
+        if (board.getMessage() != null) {
+            board1Label.setText(board1Label.getText() + board.getMessage());
         }
         if (board.isTurnBoard()) {
             board1Label.setBackground(Color.ORANGE);
@@ -142,7 +145,7 @@ public class GamePanel extends JPanel {
     private void setBoard2Label() {
         board2Label = new JLabel("salam2");
         board2Label.setOpaque(true);
-        board2Label.setFont(new Font(null, Font.ITALIC, 20));
+        board2Label.setFont(new Font(null, Font.ITALIC, 15));
         board2Label.setSize(200, 70);
         board2Label.setBounds(500, 410, 200, 70);
     }
@@ -151,6 +154,9 @@ public class GamePanel extends JPanel {
         board2Label.setText(board.getPlayerUsername());
         if (board.getTimer() > 0) {
             board2Label.setText(board2Label.getText() + " " + board.getTimer());
+        }
+        if (board.getMessage() != null) {
+            board2Label.setText(board2Label.getText() + board.getMessage());
         }
         if (board.isTurnBoard()) {
             board2Label.setBackground(Color.ORANGE);

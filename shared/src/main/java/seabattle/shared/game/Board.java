@@ -10,6 +10,7 @@ public class Board {
     boolean isTurnBoard;
     String playerUsername;
     int timer;
+    String message;
 
     public Board(int width, int height, String playerUsername, boolean isTurnBoard) {
         this.width = width;
@@ -94,5 +95,13 @@ public class Board {
             res.append("\n");
         }
         return res.toString();
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
