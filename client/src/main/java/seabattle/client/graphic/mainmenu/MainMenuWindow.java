@@ -13,6 +13,7 @@ import seabattle.shared.request.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.logging.LoggingPermission;
 
 public class MainMenuWindow implements StringInvoker {
 
@@ -131,7 +132,7 @@ public class MainMenuWindow implements StringInvoker {
         this.userData = userData;
     }
 
-    public void showSpectateList() {
+    public void showSpectateList(int cnt) {
         if (spectateGamePanel.isWorking())
             return;
         Thread t1 = new Thread(new Runnable() {
@@ -139,12 +140,19 @@ public class MainMenuWindow implements StringInvoker {
             public void run() {
                 spectateListPanel.setWorking(true);
                 spectateListLoop.start();
-                String[] options = new String[2];
-                options[0] = "s1";
-                options[1] = "s2";
-//                JOptionPane.showOptionDialog(null, spectateListPanel, "salam", JOptionPane.OPTION_TYPE_PROPERTY, "");
-//                JOptionPane.showOptionDialog(null, "test", "salam", JOptionPane., JOptionPane.QUESTION_MESSAGE, null, options, "salam");
-                int n = JOptionPane.showConfirmDialog(null, null, "Select a car model from the list below", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+                String[] options = new String[cnt];
+                for (int i = 0; i < cnt; i++)
+                    options[i] = String.valueOf(i);
+                int n = JOptionPane.showOptionDialog(
+                        null,
+                        spectateListPanel,
+                        "s",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.INFORMATION_MESSAGE,
+                        null,
+                        options,
+                        "select"
+                );
                 spectateListPanel.setWorking(false);
                 System.out.println("result mainmenuwindo " + n);
                 spectateListLoop.stop();

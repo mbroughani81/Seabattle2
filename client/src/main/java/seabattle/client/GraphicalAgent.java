@@ -98,8 +98,8 @@ public class GraphicalAgent {
         mainMenuWindow.updateScoreboard(scoreboardRecords);
     }
 
-    public void showSpectateList() {
-        mainMenuWindow.showSpectateList();
+    public void showSpectateList(int cnt) {
+        mainMenuWindow.showSpectateList(cnt);
     }
 
     public void updateSpectateList(SpectateListRecord[] records) {

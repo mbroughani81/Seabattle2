@@ -105,7 +105,7 @@ public class MainResponseHandler implements ResponseHandler {
     @Override
     public void checkGetSpectateListResponse(GetSpectateListResponse getSpectateListResponse) {
         if (getSpectateListResponse.isOpen()) {
-            graphicalAgent.showSpectateList();
+            graphicalAgent.showSpectateList(getSpectateListResponse.getRecords().length);
         } else {
             graphicalAgent.updateSpectateList(getSpectateListResponse.getRecords());
         }
