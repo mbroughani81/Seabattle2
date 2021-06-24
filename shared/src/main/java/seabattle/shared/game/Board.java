@@ -65,4 +65,18 @@ public class Board {
     public void setPlayerUsername(String playerUsername) {
         this.playerUsername = playerUsername;
     }
+
+    @Override
+    public String toString() {
+        if (boardCells == null)
+            return "null";
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < height; i++) {
+            for (int t = 0; t < width; t++) {
+                res.append(boardCells[i][t].getColor()).append(" ");
+            }
+            res.append("\n");
+        }
+        return res.toString();
+    }
 }

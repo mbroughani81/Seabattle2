@@ -49,6 +49,10 @@ public class GraphicalAgent {
         this.gameWindow.updateBoard(board, id);
     }
 
+    public void updateSpectateBoard(Board board, int id) {
+        this.mainMenuWindow.updateSpectateBoard(board, id);
+    }
+
     public void newUserRegistered(int verdict) {
         if (verdict == -1) {
 //            System.out.println("Username already userd GraphicalAgent");

@@ -5,6 +5,7 @@ import seabattle.client.graphic.graphiclistener.StringInvoker;
 import seabattle.client.graphic.graphiclistener.StringListener;
 import seabattle.client.graphic.mainmenu.view.*;
 import seabattle.client.listener.UserData;
+import seabattle.shared.game.Board;
 import seabattle.shared.game.ScoreboardRecord;
 import seabattle.shared.game.SpectateListRecord;
 import seabattle.shared.loop.Loop;
@@ -183,6 +184,13 @@ public class MainMenuWindow implements StringInvoker {
 
     public void updateScoreboard(ScoreboardRecord[] scoreboardRecord) {
         scoreboardPanel.updateScoreboard(scoreboardRecord);
+    }
+
+    public void updateSpectateBoard(Board board, int id) {
+        System.out.println("uhum, i am updating " + board.toString());
+        spectateGamePanel.updateBoard(board, id);
+        spectateGamePanel.revalidate();
+        spectateGamePanel.repaint();
     }
 
     public void sendUpdateSpectateBoard() {

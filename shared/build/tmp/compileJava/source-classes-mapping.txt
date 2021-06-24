@@ -2,8 +2,8 @@ seabattle/shared/game/ScoreboardRecord.java
  seabattle.shared.game.ScoreboardRecord
 seabattle/shared/authtoken/AuthToken.java
  seabattle.shared.authtoken.AuthToken
-seabattle/shared/game/Board.java
- seabattle.shared.game.Board
+seabattle/shared/game/SpectateListRecord.java
+ seabattle.shared.game.SpectateListRecord
 seabattle/shared/gson/LocalDateTimeDeserializer.java
  seabattle.shared.gson.LocalDateTimeDeserializer
 seabattle/shared/gson/LocalDateTimeSerializer.java
@@ -18,12 +18,12 @@ seabattle/shared/gson/Deserializer.java
  seabattle.shared.gson.Deserializer
 seabattle/shared/game/BoardCell.java
  seabattle.shared.game.BoardCell
-seabattle/shared/game/SpectateListRecord.java
- seabattle.shared.game.SpectateListRecord
 seabattle/shared/request/RequestListener.java
  seabattle.shared.request.RequestListener
 seabattle/shared/request/StartGame.java
  seabattle.shared.request.StartGame
+seabattle/shared/game/Board.java
+ seabattle.shared.game.Board
 seabattle/shared/request/UpdateLastSeen.java
  seabattle.shared.request.UpdateLastSeen
 seabattle/shared/request/GetSpectateGame.java

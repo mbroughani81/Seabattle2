@@ -118,7 +118,8 @@ public class MainResponseHandler implements ResponseHandler {
     }
 
     @Override
-    public void updateSpectateBoard(Board board, int i) {
-        System.out.println("$# I should update shits mainresponsehandler");
+    public void updateSpectateBoard(Board board, int id) {
+//        System.out.println("$# I should update shits mainresponsehandler");
+        graphicalAgent.updateSpectateBoard(board, id);
     }
 }
