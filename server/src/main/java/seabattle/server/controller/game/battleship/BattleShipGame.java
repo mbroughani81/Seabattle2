@@ -78,6 +78,11 @@ public class BattleShipGame implements Game {
     }
 
     @Override
+    public void newBoard(Side side) {
+        gameState.setNewSide(side);
+    }
+
+    @Override
     public Board getBoard(int id, Side reciever) {
         Board board = new Board(
                 width,

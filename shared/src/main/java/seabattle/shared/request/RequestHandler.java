@@ -14,4 +14,5 @@ public interface RequestHandler {
     Response updateLastSeen(UpdateLastSeen updateLastSeen);
     Response getSpectateList(GetSpectateList getSpectateList);
     Response getSpectateGame(GetSpectateGame getSpectateGame);
+    Response newBoard(NewBoard newBoard);
 }

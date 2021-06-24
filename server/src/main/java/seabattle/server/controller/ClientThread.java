@@ -4,6 +4,7 @@ import seabattle.server.controller.dbcontroller.SessionController;
 import seabattle.server.controller.dbcontroller.UserController;
 import seabattle.server.controller.game.Game;
 import seabattle.server.controller.game.GameLobby;
+import seabattle.server.controller.game.battleship.BattleShipGame;
 import seabattle.server.model.Side;
 import seabattle.server.model.User;
 import seabattle.shared.authtoken.AuthToken;
@@ -140,7 +141,11 @@ public class ClientThread extends Thread implements RequestHandler {
         );
     }
 
-
+    @Override
+    public Response newBoard(NewBoard newBoard) {
+        game.newBoard(side);
+        return new NullResponse();
+    }
 
     public void setGame(Game game) {
         this.game = game;

@@ -1,5 +1,6 @@
 package seabattle.server.controller.game.battleship;
 
+import seabattle.server.model.Side;
 import seabattle.shared.datatype.Pair;
 
 public class GameState {
@@ -19,39 +20,47 @@ public class GameState {
     public GameState(int width, int height) {
         this.width = width;
         this.height = height;
+        setSide1Board();
+        setSide2Board();
+
+
+    }
+
+    private void setSide1Board() {
         player1Cells = new Cell[height][width];
-        player2Cells = new Cell[height][width];
+
         for (int i = 0; i < height; i++) {
             for (int t = 0; t < width; t++) {
                 player1Cells[i][t] = Cell.EMPTY;
-                player2Cells[i][t] = Cell.EMPTY;
             }
         }
-
-//        player1Battleships = new Pair[1][4];
-//        player2Battleships = new Pair[1][4];
-//        player1Battleships[0][0] = new Pair<>(0, 0);
-//        player1Battleships[0][1] = new Pair<>(0, 1);
-//        player1Battleships[0][2] = new Pair<>(0, 2);
-//        player1Battleships[0][3] = new Pair<>(0, 3);
         RandomShip randomShip = new RandomShip();
         player1Battleships = randomShip.getPlayerBattleships();
         player1Cruisers = randomShip.getPlayerCruisers();
         player1Destroyers = randomShip.getPlayerDestroyers();
         player1Frigates = randomShip.getPlayerFrigates();
-        randomShip = new RandomShip();
+    }
+
+    private void setSide2Board() {
+        player2Cells = new Cell[height][width];
+
+        for (int i = 0; i < height; i++) {
+            for (int t = 0; t < width; t++) {
+                player2Cells[i][t] = Cell.EMPTY;
+            }
+        }
+        RandomShip randomShip = new RandomShip();
         player2Battleships = randomShip.getPlayerBattleships();
         player2Cruisers = randomShip.getPlayerCruisers();
         player2Destroyers = randomShip.getPlayerDestroyers();
         player2Frigates = randomShip.getPlayerFrigates();
-//        RandomShip randomShip = new RandomShip();
-//        player2Battleships[0][0] = new Pair<>(0, 0);
-//        player2Battleships[0][1] = new Pair<>(1, 0);
-//        player2Battleships[0][2] = new Pair<>(2, 0);
-//        player2Battleships[0][3] = new Pair<>(3, 0);
+    }
 
-
-
+    public void setNewSide(Side side) {
+        if (side.getIndex() == 1)
+            setSide1Board();
+        else
+            setSide2Board();
     }
 
     public Cell[][] getPlayer1Cells() {
@@ -126,7 +135,7 @@ public class GameState {
 
     public boolean isBattleshipDestroyed(int id, int index) {
         for (Pair pair : getPlayerBattleships(id)[index]) {
-            Cell cell = getPlayerCells(id)[(int)pair.getFirst()][(int)pair.getSecond()];
+            Cell cell = getPlayerCells(id)[(int) pair.getFirst()][(int) pair.getSecond()];
             if (cell != Cell.FULL)
                 return false;
         }
@@ -135,7 +144,7 @@ public class GameState {
 
     public boolean isCruiserDestroyed(int id, int index) {
         for (Pair pair : getPlayerCruisers(id)[index]) {
-            Cell cell = getPlayerCells(id)[(int)pair.getFirst()][(int)pair.getSecond()];
+            Cell cell = getPlayerCells(id)[(int) pair.getFirst()][(int) pair.getSecond()];
             if (cell != Cell.FULL)
                 return false;
         }
@@ -144,7 +153,7 @@ public class GameState {
 
     public boolean isDestroyerDestroyed(int id, int index) {
         for (Pair pair : getPlayerDestroyers(id)[index]) {
-            Cell cell = getPlayerCells(id)[(int)pair.getFirst()][(int)pair.getSecond()];
+            Cell cell = getPlayerCells(id)[(int) pair.getFirst()][(int) pair.getSecond()];
             if (cell != Cell.FULL)
                 return false;
         }
@@ -153,7 +162,7 @@ public class GameState {
 
     public boolean isFrigateDestroyed(int id, int index) {
         for (Pair pair : getPlayerFrigates(id)[index]) {
-            Cell cell = getPlayerCells(id)[(int)pair.getFirst()][(int)pair.getSecond()];
+            Cell cell = getPlayerCells(id)[(int) pair.getFirst()][(int) pair.getSecond()];
             if (cell != Cell.FULL)
                 return false;
         }
@@ -163,22 +172,22 @@ public class GameState {
     boolean isBoat(int row, int col, int id) {
         for (int i = 0; i < 1; i++) {
             for (Pair pair : getPlayerBattleships(id)[i])
-                if ((int)pair.getFirst() == row && (int)pair.getSecond() == col)
+                if ((int) pair.getFirst() == row && (int) pair.getSecond() == col)
                     return true;
         }
         for (int i = 0; i < 2; i++) {
             for (Pair pair : getPlayerCruisers(id)[i])
-                if ((int)pair.getFirst() == row && (int)pair.getSecond() == col)
+                if ((int) pair.getFirst() == row && (int) pair.getSecond() == col)
                     return true;
         }
         for (int i = 0; i < 3; i++) {
             for (Pair pair : getPlayerDestroyers(id)[i])
-                if ((int)pair.getFirst() == row && (int)pair.getSecond() == col)
+                if ((int) pair.getFirst() == row && (int) pair.getSecond() == col)
                     return true;
         }
         for (int i = 0; i < 4; i++) {
             for (Pair pair : getPlayerFrigates(id)[i])
-                if ((int)pair.getFirst() == row && (int)pair.getSecond() == col)
+                if ((int) pair.getFirst() == row && (int) pair.getSecond() == col)
                     return true;
         }
         return false;

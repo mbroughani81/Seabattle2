@@ -2,6 +2,7 @@ package seabattle.client.graphic.game;
 
 import seabattle.client.graphic.game.view.GameFrame;
 import seabattle.client.graphic.game.view.GamePanel;
+import seabattle.client.graphic.game.view.MainGamePanel;
 import seabattle.shared.game.Board;
 import seabattle.shared.loop.Loop;
 import seabattle.shared.request.GetBoard;
@@ -43,7 +44,7 @@ public class GameWindow {
             BorderLayout layout = (BorderLayout) gameFrame.getLayout();
             gameFrame.remove(layout.getLayoutComponent(BorderLayout.CENTER));
         }
-        gamePanel = new GamePanel(listener);
+        gamePanel = new MainGamePanel(listener);
         gameFrame.add(gamePanel, BorderLayout.CENTER);
     }
 

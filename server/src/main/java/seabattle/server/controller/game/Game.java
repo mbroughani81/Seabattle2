@@ -9,4 +9,5 @@ public interface Game {
     Board getBoard(int id, Side reciever);
     int isEnded();
     int getGameId();
+    void newBoard(Side side);
 }
