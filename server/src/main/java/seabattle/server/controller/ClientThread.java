@@ -147,6 +147,12 @@ public class ClientThread extends Thread implements RequestHandler {
         return new NullResponse();
     }
 
+    @Override
+    public Response accpetBoard(AcceptBoard acceptBoard) {
+        game.acceptBoard(side);
+        return new NullResponse();
+    }
+
     public void setGame(Game game) {
         this.game = game;
     }

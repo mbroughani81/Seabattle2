@@ -1,5 +1,5 @@
-seabattle/shared/request/GetSpectateList.java
- seabattle.shared.request.GetSpectateList
+seabattle/shared/loop/Timer.java
+ seabattle.shared.loop.Timer
 seabattle/shared/response/NewUserResponse.java
  seabattle.shared.response.NewUserResponse
 seabattle/shared/game/Board.java
@@ -76,5 +76,7 @@ seabattle/shared/request/ClickOnBoard.java
  seabattle.shared.request.ClickOnBoard
 seabattle/shared/request/NewUser.java
  seabattle.shared.request.NewUser
-seabattle/shared/loop/Timer.java
- seabattle.shared.loop.Timer
+seabattle/shared/request/AcceptBoard.java
+ seabattle.shared.request.AcceptBoard
+seabattle/shared/request/GetSpectateList.java
+ seabattle.shared.request.GetSpectateList

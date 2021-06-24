@@ -26,7 +26,8 @@ public class BattleShipGame implements Game {
     int player2HitNumber;
     int player1NumberOfChanges;
     int player2NumberOfChanges;
-
+    boolean isPlayer1Finalized;
+    boolean isPlayer2Finalized;
 
 //    int cnt = 0;
 
@@ -81,9 +82,9 @@ public class BattleShipGame implements Game {
 
     @Override
     public void newBoard(Side side) {
-        if (side.getIndex() == 1 && player1NumberOfChanges >= 3)
+        if (side.getIndex() == 1 && (isPlayer1Finalized || player1NumberOfChanges >= 3))
             return;
-        if (side.getIndex() == 2 && player2NumberOfChanges >= 3)
+        if (side.getIndex() == 2 && (isPlayer2Finalized || player2NumberOfChanges >= 3))
             return;
         gameState.setNewSide(side);
         if (side.getIndex() == 1) {
@@ -92,6 +93,17 @@ public class BattleShipGame implements Game {
         } else {
             player2placingTime.setTime(player2placingTime.getTime() + 5000);
             player2NumberOfChanges++;
+        }
+    }
+
+    @Override
+    public void acceptBoard(Side side) {
+        if (side.getIndex() == 1) {
+            setPlayer1Finalized(true);
+            player1placingTime.setTime(0);
+        } else {
+            setPlayer2Finalized(true);
+            player2placingTime.setTime(0);
         }
     }
 
@@ -319,5 +331,21 @@ public class BattleShipGame implements Game {
 
     public void setGameId(int gameId) {
         this.gameId = gameId;
+    }
+
+    public boolean isPlayer1Finalized() {
+        return isPlayer1Finalized;
+    }
+
+    public void setPlayer1Finalized(boolean player1Finalized) {
+        isPlayer1Finalized = player1Finalized;
+    }
+
+    public boolean isPlayer2Finalized() {
+        return isPlayer2Finalized;
+    }
+
+    public void setPlayer2Finalized(boolean player2Finalized) {
+        isPlayer2Finalized = player2Finalized;
     }
 }

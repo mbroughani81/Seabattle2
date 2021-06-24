@@ -23,6 +23,7 @@ seabattle/client/listener/UserData.java
 seabattle/client/graphic/game/view/MainGamePanel.java
  seabattle.client.graphic.game.view.MainGamePanel
  seabattle.client.graphic.game.view.MainGamePanel$1
+ seabattle.client.graphic.game.view.MainGamePanel$2
 seabattle/client/graphic/mainmenu/view/MainMenuPanel.java
  seabattle.client.graphic.mainmenu.view.MainMenuPanel
  seabattle.client.graphic.mainmenu.view.MainMenuPanel$1

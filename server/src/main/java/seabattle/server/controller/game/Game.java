@@ -10,4 +10,5 @@ public interface Game {
     int isEnded();
     int getGameId();
     void newBoard(Side side);
+    void acceptBoard(Side side);
 }
