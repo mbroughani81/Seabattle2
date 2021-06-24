@@ -27,7 +27,7 @@ public class BattleShipGame implements Game {
     int player1NumberOfChanges;
     int player2NumberOfChanges;
     boolean isPlayer1Finalized;
-    boolean isPlayer2Finalized;
+    boolean isPlayer2Finalized; // can be false even after game started
 
 //    int cnt = 0;
 
@@ -48,9 +48,11 @@ public class BattleShipGame implements Game {
 
     @Override
     public void click(int row, int col, int id, Side side) {
-        if (side == Side.PLAYER_ONE && !player1placingTime.isFinished())
-            return;
-        if (side == Side.PLAYER_TWO && !player2placingTime.isFinished())
+//        if (side == Side.PLAYER_ONE && !player1placingTime.isFinished())
+//            return;
+//        if (side == Side.PLAYER_TWO && !player2placingTime.isFinished())
+//            return;
+        if (!player1placingTime.isFinished() || !player2placingTime.isFinished())
             return;
         if (row < 0 || row >= 10 || col < 0 || col >= 10)
             return;
