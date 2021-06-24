@@ -24,6 +24,8 @@ public class BattleShipGame implements Game {
     int moveNumber;
     int player1HitNumber;
     int player2HitNumber;
+    int player1NumberOfChanges;
+    int player2NumberOfChanges;
 
 
 //    int cnt = 0;
@@ -79,7 +81,18 @@ public class BattleShipGame implements Game {
 
     @Override
     public void newBoard(Side side) {
+        if (side.getIndex() == 1 && player1NumberOfChanges >= 3)
+            return;
+        if (side.getIndex() == 2 && player2NumberOfChanges >= 3)
+            return;
         gameState.setNewSide(side);
+        if (side.getIndex() == 1) {
+            player1placingTime.setTime(player1placingTime.getTime() + 5000);
+            player1NumberOfChanges++;
+        } else {
+            player2placingTime.setTime(player2placingTime.getTime() + 5000);
+            player2NumberOfChanges++;
+        }
     }
 
     @Override

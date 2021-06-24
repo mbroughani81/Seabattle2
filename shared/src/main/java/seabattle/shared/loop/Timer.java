@@ -41,4 +41,12 @@ public class Timer {
     public int getRemainingSec() {
         return (int)time/1000 - (int)getDiff(LocalTime.now())/1000;
     }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public long getTime() {
+        return time;
+    }
 }
