@@ -51,6 +51,7 @@ public class MainMenuPanel extends JPanel implements StringInvoker {
         spectateGamesBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println("shit! dont! mainmenupanel");
                 listener.listen(new GetSpectateList(true));
             }
         });

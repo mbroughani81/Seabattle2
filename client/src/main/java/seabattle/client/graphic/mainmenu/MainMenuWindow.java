@@ -26,6 +26,7 @@ public class MainMenuWindow implements StringInvoker {
     private UserData userData;
     private Loop scoreboardLoop;
     private Loop spectateListLoop;
+    private Loop spectateGameLoop;
     private Loop updateLastSeenLoop;
 
     LinkedList<StringListener> stringListeners = new LinkedList<>();
@@ -40,6 +41,7 @@ public class MainMenuWindow implements StringInvoker {
         this.spectateGamePanel = new SpectateGamePanel();
         this.scoreboardLoop = new Loop(1, this::sendGetScoreboard);
         this.spectateListLoop = new Loop(1, this::sendGetSpectateList);
+        this.spectateGameLoop = new Loop(1, this::sendGetSpectateGame);
         this.updateLastSeenLoop = new Loop(1, this::sendUpdateLastSeen);
         this.updateLastSeenLoop.start();
     }
@@ -84,6 +86,24 @@ public class MainMenuWindow implements StringInvoker {
         }
     }
 
+
+    private void sendGetScoreboard() {
+        listener.listen(new GetScoreboard(false));
+    }
+
+    private void sendGetSpectateList() {
+        listener.listen(new GetSpectateList(false));
+    }
+
+    private void sendUpdateLastSeen() {
+        if (userData != null)
+            listener.listen(new UpdateLastSeen(userData.getUsername()));
+    }
+
+    private void sendGetSpectateGame() {
+//        listener.listen(new Get(true));
+    }
+
     public void showPlayerInfo(String info) {
         JOptionPane.showMessageDialog(null, info);
 
@@ -107,33 +127,8 @@ public class MainMenuWindow implements StringInvoker {
 
     }
 
-    public void updateScoreboard(ScoreboardRecord[] scoreboardRecord) {
-        scoreboardPanel.updateScoreboard(scoreboardRecord);
-    }
-
-    private void sendGetScoreboard() {
-        listener.listen(new GetScoreboard(false));
-    }
-
-    private void sendGetSpectateList() {
-        listener.listen(new GetSpectateList(false));
-    }
-
-    private void sendUpdateLastSeen() {
-        if (userData != null)
-            listener.listen(new UpdateLastSeen(userData.getUsername()));
-    }
-
-    public UserData getUserData() {
-        return userData;
-    }
-
-    public void setUserData(UserData userData) {
-        this.userData = userData;
-    }
-
     public void showSpectateList(int cnt) {
-        if (spectateGamePanel.isWorking())
+        if (spectateListPanel.isWorking())
             return;
         Thread t1 = new Thread(new Runnable() {
             @Override
@@ -154,6 +149,10 @@ public class MainMenuWindow implements StringInvoker {
                         "select"
                 );
                 spectateListPanel.setWorking(false);
+                if (n != -1) {
+                    spectateGamePanel.setSourceGame(n);
+                    listener.listen(new GetSpectateGame());
+                }
                 System.out.println("result mainmenuwindo " + n);
                 spectateListLoop.stop();
                 spectateListLoop = new Loop(1, MainMenuWindow.this::sendGetSpectateList);
@@ -162,7 +161,41 @@ public class MainMenuWindow implements StringInvoker {
         t1.start();
     }
 
+    public void showSpectateGame() {
+        if (spectateGamePanel.isWorking())
+            return;
+        System.out.println("Noice mmw");
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                spectateGamePanel.setWorking(true);
+                spectateGameLoop.start();
+                JOptionPane.showMessageDialog(null, spectateGamePanel);
+                spectateGamePanel.setWorking(false);
+                spectateGameLoop.stop();
+                spectateGameLoop = new Loop(1, MainMenuWindow.this::sendGetSpectateGame);
+            }
+        });
+        t1.start();
+    }
+
     public void updateSpectateList(SpectateListRecord[] records) {
         spectateListPanel.updateScoreboard(records);
+    }
+
+    public void updateScoreboard(ScoreboardRecord[] scoreboardRecord) {
+        scoreboardPanel.updateScoreboard(scoreboardRecord);
+    }
+
+    public void updateSpectateGame() {
+
+    }
+
+    public UserData getUserData() {
+        return userData;
+    }
+
+    public void setUserData(UserData userData) {
+        this.userData = userData;
     }
 }

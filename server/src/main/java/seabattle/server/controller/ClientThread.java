@@ -125,7 +125,10 @@ public class ClientThread extends Thread implements RequestHandler {
         return new GetSpectateListResponse(gameLobby.getSpectateList(), getSpectateList.isOpen());
     }
 
-
+    @Override
+    public Response getSpectateGame(GetSpectateGame getSpectateGame) {
+        return new GetSpectateGameResponse();
+    }
 
     public void setGame(Game game) {
         this.game = game;

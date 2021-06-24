@@ -12,4 +12,5 @@ public interface RequestHandler {
     Response getScoreboard(GetScoreboard getScoreboard);
     Response updateLastSeen(UpdateLastSeen updateLastSeen);
     Response getSpectateList(GetSpectateList getSpectateList);
+    Response getSpectateGame(GetSpectateGame getSpectateGame);
 }

@@ -18,6 +18,8 @@ seabattle/shared/gson/Deserializer.java
  seabattle.shared.gson.Deserializer
 seabattle/shared/game/BoardCell.java
  seabattle.shared.game.BoardCell
+seabattle/shared/game/SpectateListRecord.java
+ seabattle.shared.game.SpectateListRecord
 seabattle/shared/request/RequestListener.java
  seabattle.shared.request.RequestListener
 seabattle/shared/request/GetScoreboard.java
@@ -32,6 +34,8 @@ seabattle/shared/response/GetPlayerInfoResponse.java
  seabattle.shared.response.GetPlayerInfoResponse
 seabattle/shared/request/GetPlayerInfo.java
  seabattle.shared.request.GetPlayerInfo
+seabattle/shared/response/GetSpectateGameResponse.java
+ seabattle.shared.response.GetSpectateGameResponse
 seabattle/shared/response/GetScoreboardResponse.java
  seabattle.shared.response.GetScoreboardResponse
 seabattle/shared/response/EndGame.java
@@ -40,6 +44,8 @@ seabattle/shared/request/UpdateLastSeen.java
  seabattle.shared.request.UpdateLastSeen
 seabattle/shared/response/UserLoginResponse.java
  seabattle.shared.response.UserLoginResponse
+seabattle/shared/request/GetSpectateGame.java
+ seabattle.shared.request.GetSpectateGame
 seabattle/shared/request/RequestHandler.java
  seabattle.shared.request.RequestHandler
 seabattle/shared/response/GetSpectateListResponse.java
@@ -48,8 +54,6 @@ seabattle/shared/response/NullResponse.java
  seabattle.shared.response.NullResponse
 seabattle/shared/response/NewMessage.java
  seabattle.shared.response.NewMessage
-seabattle/shared/game/SpectateListRecord.java
- seabattle.shared.game.SpectateListRecord
 seabattle/shared/request/UserLogin.java
  seabattle.shared.request.UserLogin
 seabattle/shared/response/NewUserResponse.java

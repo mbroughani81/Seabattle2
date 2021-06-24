@@ -104,10 +104,16 @@ public class MainResponseHandler implements ResponseHandler {
 
     @Override
     public void checkGetSpectateListResponse(GetSpectateListResponse getSpectateListResponse) {
+        System.out.println("I got : " + getSpectateListResponse.isOpen() + " main resonsehandler");
         if (getSpectateListResponse.isOpen()) {
             graphicalAgent.showSpectateList(getSpectateListResponse.getRecords().length);
         } else {
             graphicalAgent.updateSpectateList(getSpectateListResponse.getRecords());
         }
+    }
+
+    @Override
+    public void checkGetSpectateGameResponse(GetSpectateGameResponse getSpectateGameResponse) {
+        graphicalAgent.showSpectateGame();
     }
 }

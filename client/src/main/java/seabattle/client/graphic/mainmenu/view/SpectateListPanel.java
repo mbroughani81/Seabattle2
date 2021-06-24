@@ -27,7 +27,7 @@ public class SpectateListPanel extends JPanel {
     }
 
     public void updateScoreboard(SpectateListRecord[] records) {
-        System.out.println("I shoult update scoreboard!! updateScoreboard");
+        System.out.println("I shoult update spectatelist!! spectatelist");
         test.setText("");
         for (SpectateListRecord record : records) {
             test.setText(test.getText() + record.getUsername1() + " " + record.getUsername2() + "\n");
