@@ -1,29 +1,19 @@
 package seabattle.client.graphic.mainmenu.view;
 
+import seabattle.client.graphic.game.view.GamePanel;
 import seabattle.shared.game.ScoreboardRecord;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class SpectateGamePanel extends JPanel {
+public class SpectateGamePanel extends GamePanel {
     boolean isWorking;
     JTextArea test;
     int sourceGame;
 
     public SpectateGamePanel() {
-        setLayout(new GridBagLayout());
-        setBackground(Color.CYAN);
-        setOpaque(true);
-        GridBagConstraints gbc = new GridBagConstraints();
-        setPreferredSize(new Dimension(500, 500));
-
-        test = new JTextArea("Loading...");
-        test.setPreferredSize(new Dimension(200, 200));
-        test.setFont(new Font(null, Font.BOLD, 20));
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        add(test, gbc);
-
+        super();
+        setPreferredSize(new Dimension(1000, 500));
     }
 
     public void updateScoreboard(ScoreboardRecord[] scoreboardRecords) {

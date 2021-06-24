@@ -24,10 +24,10 @@ seabattle/client/graphic/AbstractPanel.java
  seabattle.client.graphic.AbstractPanel
 seabattle/client/graphic/MyFrame.java
  seabattle.client.graphic.MyFrame
-seabattle/client/graphic/game/GameWindow.java
- seabattle.client.graphic.game.GameWindow
-seabattle/client/graphic/mainmenu/view/SpectateGamePanel.java
- seabattle.client.graphic.mainmenu.view.SpectateGamePanel
+seabattle/client/graphic/mainmenu/view/SpectateListPanel.java
+ seabattle.client.graphic.mainmenu.view.SpectateListPanel
+seabattle/client/GraphicalAgent.java
+ seabattle.client.GraphicalAgent
 seabattle/client/listener/MainResponseHandler.java
  seabattle.client.listener.MainResponseHandler
 seabattle/client/graphic/mainmenu/view/MainMenuFrame.java
@@ -60,17 +60,17 @@ seabattle/client/listener/RequestSender.java
  seabattle.client.listener.RequestSender
 seabattle/client/graphic/authentication/view/SignupPanel.java
  seabattle.client.graphic.authentication.view.SignupPanel
+seabattle/client/graphic/game/GameWindow.java
+ seabattle.client.graphic.game.GameWindow
 seabattle/client/graphic/game/view/GamePanel.java
  seabattle.client.graphic.game.view.GamePanel
  seabattle.client.graphic.game.view.GamePanel$1
  seabattle.client.graphic.game.view.GamePanel$2
-seabattle/client/graphic/mainmenu/view/SpectateListPanel.java
- seabattle.client.graphic.mainmenu.view.SpectateListPanel
-seabattle/client/GraphicalAgent.java
- seabattle.client.GraphicalAgent
 seabattle/client/graphic/mainmenu/MainMenuWindow.java
  seabattle.client.graphic.mainmenu.MainMenuWindow
  seabattle.client.graphic.mainmenu.MainMenuWindow$1
  seabattle.client.graphic.mainmenu.MainMenuWindow$2
  seabattle.client.graphic.mainmenu.MainMenuWindow$3
  seabattle.client.graphic.mainmenu.MainMenuWindow$4
+seabattle/client/graphic/mainmenu/view/SpectateGamePanel.java
+ seabattle.client.graphic.mainmenu.view.SpectateGamePanel

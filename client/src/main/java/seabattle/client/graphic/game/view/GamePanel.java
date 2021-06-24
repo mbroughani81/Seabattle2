@@ -17,9 +17,7 @@ public class GamePanel extends JPanel {
     JLabel board1Label;
     JLabel board2Label;
 
-    public GamePanel(RequestListener listener) {
-        this.listener = listener;
-
+    public GamePanel() {
         setBackground(Color.PINK);
         setOpaque(true);
         setLayout(null);
@@ -34,6 +32,11 @@ public class GamePanel extends JPanel {
         add(board2Label);
     }
 
+    public GamePanel(RequestListener listener) {
+        this();
+        this.listener = listener;
+    }
+
     private void setBoard1() {
         int unitWidth = 400 / 10;
         int unitHeight = 400 / 10;
@@ -41,10 +44,11 @@ public class GamePanel extends JPanel {
         board1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                listener.listen(new ClickOnBoard(
-                        mouseEvent.getY() / unitHeight,
-                        mouseEvent.getX() / unitWidth,
-                        1));
+                if (listener != null)
+                    listener.listen(new ClickOnBoard(
+                            mouseEvent.getY() / unitHeight,
+                            mouseEvent.getX() / unitWidth,
+                            1));
             }
 
             @Override
@@ -81,10 +85,11 @@ public class GamePanel extends JPanel {
         board2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                listener.listen(new ClickOnBoard(
-                        mouseEvent.getY() / unitHeight,
-                        mouseEvent.getX() / unitWidth,
-                        2));
+                if (listener != null)
+                    listener.listen(new ClickOnBoard(
+                            mouseEvent.getY() / unitHeight,
+                            mouseEvent.getX() / unitWidth,
+                            2));
             }
 
             @Override
@@ -149,7 +154,7 @@ public class GamePanel extends JPanel {
     }
 
     public void updateBoard(Board board, int id) {
-        System.out.println("Board is is GamePanel  "  + board.getPlayerUsername() + " " + id);
+        System.out.println("Board is is GamePanel  " + board.getPlayerUsername() + " " + id);
         if (id == 1) {
             updateBoard1(board);
             updateBoard1Label(board);
