@@ -9,12 +9,14 @@ public class Board {
     int height;
     boolean isTurnBoard;
     String playerUsername;
+    int timer;
 
     public Board(int width, int height, String playerUsername, boolean isTurnBoard) {
         this.width = width;
         this.height = height;
         this.playerUsername = playerUsername;
         this.isTurnBoard = isTurnBoard;
+        this.timer = -1;
         boardCells = new BoardCell[height][width];
         for (int i = 0; i < height; i++) {
             for (int t = 0; t < width; t++) {
@@ -25,6 +27,12 @@ public class Board {
             }
         }
     }
+
+    public Board(int width, int height, String playerUsername, boolean isTurnBoard, int timer) {
+        this(width, height, playerUsername, isTurnBoard);
+        this.timer = timer;
+    }
+
 
     public BoardCell[][] getBoardCells() {
         return boardCells;
@@ -64,6 +72,14 @@ public class Board {
 
     public void setPlayerUsername(String playerUsername) {
         this.playerUsername = playerUsername;
+    }
+
+    public int getTimer() {
+        return timer;
+    }
+
+    public void setTimer(int timer) {
+        this.timer = timer;
     }
 
     @Override

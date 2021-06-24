@@ -1,43 +1,35 @@
-seabattle/shared/game/ScoreboardRecord.java
- seabattle.shared.game.ScoreboardRecord
-seabattle/shared/authtoken/AuthToken.java
- seabattle.shared.authtoken.AuthToken
-seabattle/shared/game/SpectateListRecord.java
- seabattle.shared.game.SpectateListRecord
-seabattle/shared/gson/LocalDateTimeDeserializer.java
- seabattle.shared.gson.LocalDateTimeDeserializer
-seabattle/shared/gson/LocalDateTimeSerializer.java
- seabattle.shared.gson.LocalDateTimeSerializer
-seabattle/shared/gson/Serializer.java
- seabattle.shared.gson.Serializer
-seabattle/shared/datatype/Pair.java
- seabattle.shared.datatype.Pair
-seabattle/shared/loop/Loop.java
- seabattle.shared.loop.Loop
-seabattle/shared/gson/Deserializer.java
- seabattle.shared.gson.Deserializer
-seabattle/shared/game/BoardCell.java
- seabattle.shared.game.BoardCell
 seabattle/shared/request/RequestListener.java
  seabattle.shared.request.RequestListener
 seabattle/shared/request/StartGame.java
  seabattle.shared.request.StartGame
 seabattle/shared/game/Board.java
  seabattle.shared.game.Board
+seabattle/shared/gson/LocalDateTimeDeserializer.java
+ seabattle.shared.gson.LocalDateTimeDeserializer
 seabattle/shared/request/UpdateLastSeen.java
  seabattle.shared.request.UpdateLastSeen
 seabattle/shared/request/GetSpectateGame.java
  seabattle.shared.request.GetSpectateGame
+seabattle/shared/gson/Serializer.java
+ seabattle.shared.gson.Serializer
 seabattle/shared/response/NullResponse.java
  seabattle.shared.response.NullResponse
 seabattle/shared/response/NewMessage.java
  seabattle.shared.response.NewMessage
+seabattle/shared/game/SpectateListRecord.java
+ seabattle.shared.game.SpectateListRecord
 seabattle/shared/request/UserLogin.java
  seabattle.shared.request.UserLogin
+seabattle/shared/game/BoardCell.java
+ seabattle.shared.game.BoardCell
+seabattle/shared/gson/Deserializer.java
+ seabattle.shared.gson.Deserializer
 seabattle/shared/request/GetBoard.java
  seabattle.shared.request.GetBoard
 seabattle/shared/response/UpdateBoard.java
  seabattle.shared.response.UpdateBoard
+seabattle/shared/game/ScoreboardRecord.java
+ seabattle.shared.game.ScoreboardRecord
 seabattle/shared/request/ClickOnBoard.java
  seabattle.shared.request.ClickOnBoard
 seabattle/shared/request/NewUser.java
@@ -48,10 +40,14 @@ seabattle/shared/request/GetScoreboard.java
  seabattle.shared.request.GetScoreboard
 seabattle/shared/response/ResponseHandler.java
  seabattle.shared.response.ResponseHandler
+seabattle/shared/datatype/Pair.java
+ seabattle.shared.datatype.Pair
 seabattle/shared/request/Request.java
  seabattle.shared.request.Request
 seabattle/shared/response/GetPlayerInfoResponse.java
  seabattle.shared.response.GetPlayerInfoResponse
+seabattle/shared/gson/LocalDateTimeSerializer.java
+ seabattle.shared.gson.LocalDateTimeSerializer
 seabattle/shared/request/GetPlayerInfo.java
  seabattle.shared.request.GetPlayerInfo
 seabattle/shared/response/GetSpectateGameResponse.java
@@ -62,6 +58,8 @@ seabattle/shared/response/UpdateSpectateBoard.java
  seabattle.shared.response.UpdateSpectateBoard
 seabattle/shared/response/EndGame.java
  seabattle.shared.response.EndGame
+seabattle/shared/loop/Loop.java
+ seabattle.shared.loop.Loop
 seabattle/shared/response/UserLoginResponse.java
  seabattle.shared.response.UserLoginResponse
 seabattle/shared/request/RequestHandler.java
@@ -70,9 +68,11 @@ seabattle/shared/response/GetSpectateListResponse.java
  seabattle.shared.response.GetSpectateListResponse
 seabattle/shared/request/GetSpectateBoard.java
  seabattle.shared.request.GetSpectateBoard
+seabattle/shared/authtoken/AuthToken.java
+ seabattle.shared.authtoken.AuthToken
 seabattle/shared/response/NewUserResponse.java
  seabattle.shared.response.NewUserResponse
-seabattle/shared/response/Response.java
- seabattle.shared.response.Response
 seabattle/shared/loop/Timer.java
  seabattle.shared.loop.Timer
+seabattle/shared/response/Response.java
+ seabattle.shared.response.Response

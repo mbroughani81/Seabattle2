@@ -5,6 +5,7 @@ import seabattle.server.model.Side;
 import seabattle.shared.datatype.Pair;
 import seabattle.shared.game.Board;
 import seabattle.shared.game.BoardCell;
+import seabattle.shared.loop.Timer;
 
 import java.awt.*;
 
@@ -13,6 +14,8 @@ public class BattleShipGame implements Game {
     static int MAX_GAME_ID = 0;
     int gameId;
     private GameState gameState;
+    Timer player1placingTime;
+    Timer player2placingTime;
     Side sideToTurn;
     int width;
     int height;
@@ -28,6 +31,10 @@ public class BattleShipGame implements Game {
     public BattleShipGame(int width, int height, String username1, String username2) {
         this.gameId = MAX_GAME_ID;
         MAX_GAME_ID++;
+        this.player1placingTime = new Timer(10000);
+        this.player1placingTime.start();
+        this.player2placingTime = new Timer(10000);
+        this.player2placingTime.start();
         this.gameState = new GameState(width, height);
         this.sideToTurn = Side.PLAYER_ONE;
         this.width = width;
@@ -38,6 +45,10 @@ public class BattleShipGame implements Game {
 
     @Override
     public void click(int row, int col, int id, Side side) {
+        if (side == Side.PLAYER_ONE && !player1placingTime.isFinished())
+            return;
+        if (side == Side.PLAYER_TWO && !player2placingTime.isFinished())
+            return;
         if (row < 0 || row >= 10 || col < 0 || col >= 10)
             return;
         if (side.getIndex() == id || side != sideToTurn)
@@ -72,7 +83,8 @@ public class BattleShipGame implements Game {
                 width,
                 height,
                 (id == 1) ? getUsername1() : getUsername2(),
-                id == sideToTurn.getIndex()
+                id == sideToTurn.getIndex(),
+                (id == 1) ? player1placingTime.getRemainingSec() : player2placingTime.getRemainingSec()
         );
         // chosed ones, black
         Cell[][] playerCells = gameState.getPlayerCells(id);
