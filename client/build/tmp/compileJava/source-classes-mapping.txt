@@ -64,6 +64,8 @@ seabattle/client/graphic/authentication/view/SignupPanel.java
  seabattle.client.graphic.authentication.view.SignupPanel
 seabattle/client/graphic/mainmenu/view/SpectateListPanel.java
  seabattle.client.graphic.mainmenu.view.SpectateListPanel
+seabattle/client/graphic/mainmenu/view/SpectateGamePanel.java
+ seabattle.client.graphic.mainmenu.view.SpectateGamePanel
 seabattle/client/GraphicalAgent.java
  seabattle.client.GraphicalAgent
 seabattle/client/graphic/mainmenu/MainMenuWindow.java
@@ -71,5 +73,3 @@ seabattle/client/graphic/mainmenu/MainMenuWindow.java
  seabattle.client.graphic.mainmenu.MainMenuWindow$1
  seabattle.client.graphic.mainmenu.MainMenuWindow$2
  seabattle.client.graphic.mainmenu.MainMenuWindow$3
-seabattle/client/graphic/mainmenu/view/SpectateGamePanel.java
- seabattle.client.graphic.mainmenu.view.SpectateGamePanel

@@ -139,10 +139,16 @@ public class MainMenuWindow implements StringInvoker {
             public void run() {
                 spectateListPanel.setWorking(true);
                 spectateListLoop.start();
-                JOptionPane.showMessageDialog(null, spectateListPanel);
+                String[] options = new String[2];
+                options[0] = "s1";
+                options[1] = "s2";
+//                JOptionPane.showOptionDialog(null, spectateListPanel, "salam", JOptionPane.OPTION_TYPE_PROPERTY, "");
+//                JOptionPane.showOptionDialog(null, "test", "salam", JOptionPane., JOptionPane.QUESTION_MESSAGE, null, options, "salam");
+                int n = JOptionPane.showConfirmDialog(null, null, "Select a car model from the list below", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                 spectateListPanel.setWorking(false);
+                System.out.println("result mainmenuwindo " + n);
                 spectateListLoop.stop();
-                spectateListLoop = new Loop(1, MainMenuWindow.this::sendUpdateLastSeen);
+                spectateListLoop = new Loop(1, MainMenuWindow.this::sendGetSpectateList);
             }
         });
         t1.start();
