@@ -72,7 +72,7 @@ seabattle/shared/authtoken/AuthToken.java
  seabattle.shared.authtoken.AuthToken
 seabattle/shared/response/NewUserResponse.java
  seabattle.shared.response.NewUserResponse
-seabattle/shared/loop/Timer.java
- seabattle.shared.loop.Timer
 seabattle/shared/response/Response.java
  seabattle.shared.response.Response
+seabattle/shared/loop/Timer.java
+ seabattle.shared.loop.Timer

@@ -129,6 +129,9 @@ public class GamePanel extends JPanel {
 
     private void updateBoard1Label(Board board) {
         board1Label.setText(board.getPlayerUsername());
+        if (board.getTimer() > 0) {
+            board1Label.setText(board1Label.getText() + " " + board.getTimer());
+        }
         if (board.isTurnBoard()) {
             board1Label.setBackground(Color.ORANGE);
         } else {
@@ -146,6 +149,9 @@ public class GamePanel extends JPanel {
 
     private void updateBoard2Label(Board board) {
         board2Label.setText(board.getPlayerUsername());
+        if (board.getTimer() > 0) {
+            board2Label.setText(board2Label.getText() + " " + board.getTimer());
+        }
         if (board.isTurnBoard()) {
             board2Label.setBackground(Color.ORANGE);
         } else {

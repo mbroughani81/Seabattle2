@@ -39,6 +39,6 @@ public class Timer {
     }
 
     public int getRemainingSec() {
-        return (int)getDiff(LocalTime.now())/1000;
+        return (int)time/1000 - (int)getDiff(LocalTime.now())/1000;
     }
 }

@@ -83,9 +83,13 @@ public class BattleShipGame implements Game {
                 width,
                 height,
                 (id == 1) ? getUsername1() : getUsername2(),
-                id == sideToTurn.getIndex(),
-                (id == 1) ? player1placingTime.getRemainingSec() : player2placingTime.getRemainingSec()
+                id == sideToTurn.getIndex()
         );
+        if (id == reciever.getIndex()) {
+            board.setTimer(
+                    (id == 1) ? player1placingTime.getRemainingSec() : player2placingTime.getRemainingSec()
+            );
+        }
         // chosed ones, black
         Cell[][] playerCells = gameState.getPlayerCells(id);
         for (int i = 0; i < height; i++) {
