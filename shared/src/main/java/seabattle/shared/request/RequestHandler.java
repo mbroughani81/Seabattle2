@@ -5,6 +5,7 @@ import seabattle.shared.response.Response;
 public interface RequestHandler {
     Response startGame();
     Response getBoard(GetBoard getBoard);
+    Response getSpectateBoard(GetSpectateBoard getSpectateBoard);
     Response clickOnBoard(ClickOnBoard clickOnBoard);
     Response addNewUser(NewUser newUser);
     Response loginUser(UserLogin userLogin);

@@ -1,6 +1,7 @@
 package seabattle.shared.game;
 
 public class SpectateListRecord {
+    int gameId;
     String username1;
     String username2;
     int moveNumber;
@@ -9,7 +10,8 @@ public class SpectateListRecord {
     int hitNumber1;
     int hitNumber2;
 
-    public SpectateListRecord(String username1, String username2, int moveNumber, int remainingBoatNumber1, int remainingBoatNumber2, int hitNumber1, int hitNumber2) {
+    public SpectateListRecord(int gameId, String username1, String username2, int moveNumber, int remainingBoatNumber1, int remainingBoatNumber2, int hitNumber1, int hitNumber2) {
+        this.gameId = gameId;
         this.username1 = username1;
         this.username2 = username2;
         this.moveNumber = moveNumber;
@@ -17,6 +19,14 @@ public class SpectateListRecord {
         this.remainingBoatNumber2 = remainingBoatNumber2;
         this.hitNumber1 = hitNumber1;
         this.hitNumber2 = hitNumber2;
+    }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 
     public String getUsername1() {

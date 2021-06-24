@@ -41,7 +41,7 @@ public class MainMenuWindow implements StringInvoker {
         this.spectateGamePanel = new SpectateGamePanel();
         this.scoreboardLoop = new Loop(1, this::sendGetScoreboard);
         this.spectateListLoop = new Loop(1, this::sendGetSpectateList);
-        this.spectateGameLoop = new Loop(1, this::sendGetSpectateGame);
+        this.spectateGameLoop = new Loop(1, this::sendUpdateSpectateBoard);
         this.updateLastSeenLoop = new Loop(1, this::sendUpdateLastSeen);
         this.updateLastSeenLoop.start();
     }
@@ -84,24 +84,6 @@ public class MainMenuWindow implements StringInvoker {
         for (StringListener stringListener : stringListeners) {
             stringListener.run(s);
         }
-    }
-
-
-    private void sendGetScoreboard() {
-        listener.listen(new GetScoreboard(false));
-    }
-
-    private void sendGetSpectateList() {
-        listener.listen(new GetSpectateList(false));
-    }
-
-    private void sendUpdateLastSeen() {
-        if (userData != null)
-            listener.listen(new UpdateLastSeen(userData.getUsername()));
-    }
-
-    private void sendGetSpectateGame() {
-//        listener.listen(new Get(true));
     }
 
     public void showPlayerInfo(String info) {
@@ -150,8 +132,11 @@ public class MainMenuWindow implements StringInvoker {
                 );
                 spectateListPanel.setWorking(false);
                 if (n != -1) {
-                    spectateGamePanel.setSourceGame(n);
-                    listener.listen(new GetSpectateGame());
+                    int gameId = spectateListPanel.getGameId(n);
+                    spectateGamePanel.setSourceGame(gameId);
+                    if (gameId != -1) {
+                        listener.listen(new GetSpectateGame());
+                    }
                 }
                 System.out.println("result mainmenuwindo " + n);
                 spectateListLoop.stop();
@@ -173,10 +158,23 @@ public class MainMenuWindow implements StringInvoker {
                 JOptionPane.showMessageDialog(null, spectateGamePanel);
                 spectateGamePanel.setWorking(false);
                 spectateGameLoop.stop();
-                spectateGameLoop = new Loop(1, MainMenuWindow.this::sendGetSpectateGame);
+                spectateGameLoop = new Loop(1, MainMenuWindow.this::sendUpdateSpectateBoard);
             }
         });
         t1.start();
+    }
+
+    private void sendGetScoreboard() {
+        listener.listen(new GetScoreboard(false));
+    }
+
+    private void sendGetSpectateList() {
+        listener.listen(new GetSpectateList(false));
+    }
+
+    private void sendUpdateLastSeen() {
+        if (userData != null)
+            listener.listen(new UpdateLastSeen(userData.getUsername()));
     }
 
     public void updateSpectateList(SpectateListRecord[] records) {
@@ -187,8 +185,12 @@ public class MainMenuWindow implements StringInvoker {
         scoreboardPanel.updateScoreboard(scoreboardRecord);
     }
 
-    public void updateSpectateGame() {
-
+    public void sendUpdateSpectateBoard() {
+        int gameId = spectateGamePanel.getSourceGame();
+        if (gameId == -1)
+            return;
+        listener.listen(new GetSpectateBoard(gameId, 1));
+        listener.listen(new GetSpectateBoard(gameId, 2));
     }
 
     public UserData getUserData() {

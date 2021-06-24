@@ -7,6 +7,7 @@ import seabattle.server.controller.game.GameLobby;
 import seabattle.server.model.Side;
 import seabattle.server.model.User;
 import seabattle.shared.authtoken.AuthToken;
+import seabattle.shared.game.Board;
 import seabattle.shared.request.*;
 import seabattle.shared.response.*;
 
@@ -129,6 +130,16 @@ public class ClientThread extends Thread implements RequestHandler {
     public Response getSpectateGame(GetSpectateGame getSpectateGame) {
         return new GetSpectateGameResponse();
     }
+
+    @Override
+    public Response getSpectateBoard(GetSpectateBoard getSpectateBoard) {
+        return new UpdateSpectateBoard(
+                getSpectateBoard.getId(),
+                gameLobby.getBoard(getSpectateBoard.getGameId(), getSpectateBoard.getId())
+        );
+    }
+
+
 
     public void setGame(Game game) {
         this.game = game;

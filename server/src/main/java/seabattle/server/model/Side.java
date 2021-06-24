@@ -22,6 +22,16 @@ public enum Side {
         public int getIndex() {
             return 2;
         }
+    },SPECTATOR{
+        @Override
+        public Side getOther() {
+            return SPECTATOR;
+        }
+
+        @Override
+        public int getIndex() {
+            return 3;
+        }
     };
 
     public abstract Side getOther();

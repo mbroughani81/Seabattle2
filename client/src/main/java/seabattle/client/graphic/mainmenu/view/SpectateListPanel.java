@@ -9,6 +9,7 @@ import java.awt.*;
 public class SpectateListPanel extends JPanel {
     boolean isWorking;
     JTextArea test;
+    SpectateListRecord[] records;
 
     public SpectateListPanel() {
         setLayout(new GridBagLayout());
@@ -28,6 +29,7 @@ public class SpectateListPanel extends JPanel {
 
     public void updateScoreboard(SpectateListRecord[] records) {
         System.out.println("I shoult update spectatelist!! spectatelist");
+        this.records = records;
         test.setText("");
         for (SpectateListRecord record : records) {
             test.setText(test.getText() + record.getUsername1() + " " + record.getUsername2() + "\n");
@@ -40,5 +42,13 @@ public class SpectateListPanel extends JPanel {
 
     public void setWorking(boolean working) {
         isWorking = working;
+    }
+
+    public int getGameId(int n) {
+        if (records == null)
+            return -1;
+        if (records.length <= n)
+            return -1;
+        return records[n].getGameId();
     }
 }

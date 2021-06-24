@@ -9,6 +9,9 @@ import seabattle.shared.game.BoardCell;
 import java.awt.*;
 
 public class BattleShipGame implements Game {
+
+    static int MAX_GAME_ID = 0;
+    int gameId;
     private GameState gameState;
     Side sideToTurn;
     int width;
@@ -22,6 +25,8 @@ public class BattleShipGame implements Game {
 //    int cnt = 0;
 
     public BattleShipGame(int width, int height, String username1, String username2) {
+        this.gameId = MAX_GAME_ID;
+        MAX_GAME_ID++;
         this.gameState = new GameState(width, height);
         this.sideToTurn = Side.PLAYER_ONE;
         this.width = width;
@@ -258,5 +263,14 @@ public class BattleShipGame implements Game {
         } else {
             return player2HitNumber;
         }
+    }
+
+    @Override
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 }

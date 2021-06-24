@@ -116,4 +116,9 @@ public class MainResponseHandler implements ResponseHandler {
     public void checkGetSpectateGameResponse(GetSpectateGameResponse getSpectateGameResponse) {
         graphicalAgent.showSpectateGame();
     }
+
+    @Override
+    public void updateSpectateBoard(Board board, int i) {
+        System.out.println("$# I should update shits mainresponsehandler");
+    }
 }

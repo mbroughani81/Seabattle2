@@ -11,9 +11,11 @@ public class SpectateGamePanel extends GamePanel {
     JTextArea test;
     int sourceGame;
 
+
     public SpectateGamePanel() {
         super();
         setPreferredSize(new Dimension(1000, 500));
+        this.sourceGame = -1;
     }
 
     public void updateScoreboard(ScoreboardRecord[] scoreboardRecords) {
@@ -39,4 +41,5 @@ public class SpectateGamePanel extends GamePanel {
     public void setSourceGame(int sourceGame) {
         this.sourceGame = sourceGame;
     }
+
 }

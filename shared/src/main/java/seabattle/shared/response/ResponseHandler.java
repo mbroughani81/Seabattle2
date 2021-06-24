@@ -5,6 +5,7 @@ import seabattle.shared.game.Board;
 public interface ResponseHandler {
     void showMessage(String s);
     void updateBoard(Board board, int id);
+    void updateSpectateBoard(Board board, int id);
     void checkNewUserResponse(NewUserResponse newUserResponse);
     void checkUserLoginResponse(UserLoginResponse userLoginResponse);
     void checkGetPlayerInfoResponse(GetPlayerInfoResponse getPlayerInfoResponse);
