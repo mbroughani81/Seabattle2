@@ -73,6 +73,7 @@ public class BattleShipGame implements Game {
                 (id == 1) ? getUsername1() : getUsername2(),
                 id == sideToTurn.getIndex()
         );
+        // chosed ones, black
         Cell[][] playerCells = gameState.getPlayerCells(id);
         for (int i = 0; i < height; i++) {
             for (int t = 0; t < width; t++) {
@@ -81,41 +82,52 @@ public class BattleShipGame implements Game {
                     boardCell.setColor(Color.BLACK);
             }
         }
-        if (reciever.getIndex() == id) {
-            Pair[][] ships = gameState.getPlayerBattleships(id);
-            for (int i = 0; i < ships.length; i++) {
-                for (int t = 0; t < ships[i].length; t++) {
-                    BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
-                    if (playerCells[(int)ships[i][t].getFirst()][(int)ships[i][t].getSecond()] == Cell.EMPTY)
-                        boardCell.setColor(Color.MAGENTA);
-                }
-            }
-            ships = gameState.getPlayerCruisers(id);
-            for (int i = 0; i < ships.length; i++) {
-                for (int t = 0; t < ships[i].length; t++) {
-                    BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
-                    if (playerCells[(int)ships[i][t].getFirst()][(int)ships[i][t].getSecond()] == Cell.EMPTY)
-                        boardCell.setColor(Color.GRAY);
-                }
-            }
-            ships = gameState.getPlayerDestroyers(id);
-            for (int i = 0; i < ships.length; i++) {
-                for (int t = 0; t < ships[i].length; t++) {
-                    BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
-                    if (playerCells[(int)ships[i][t].getFirst()][(int)ships[i][t].getSecond()] == Cell.EMPTY)
-                        boardCell.setColor(Color.CYAN);
-                }
-            }
-            ships = gameState.getPlayerFrigates(id);
-            for (int i = 0; i < ships.length; i++) {
-                for (int t = 0; t < ships[i].length; t++) {
-                    BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
-                    if (playerCells[(int)ships[i][t].getFirst()][(int)ships[i][t].getSecond()] == Cell.EMPTY)
-                        boardCell.setColor(Color.GREEN);
-                }
-            }
 
+        Pair[][] ships = gameState.getPlayerBattleships(id);
+        for (int i = 0; i < ships.length; i++) {
+            for (int t = 0; t < ships[i].length; t++) {
+                BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
+                if (reciever.getIndex() == id && playerCells[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()] == Cell.EMPTY) {
+                    boardCell.setColor(Color.MAGENTA);
+                }
+                if (gameState.isBattleshipDestroyed(id, i))
+                    boardCell.setColor(Color.RED);
+            }
         }
+        ships = gameState.getPlayerCruisers(id);
+        for (int i = 0; i < ships.length; i++) {
+            for (int t = 0; t < ships[i].length; t++) {
+                BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
+                if (reciever.getIndex() == id && playerCells[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()] == Cell.EMPTY) {
+                    boardCell.setColor(Color.GRAY);
+                }
+                if (gameState.isCruiserDestroyed(id, i))
+                    boardCell.setColor(Color.RED);
+            }
+        }
+        ships = gameState.getPlayerDestroyers(id);
+        for (int i = 0; i < ships.length; i++) {
+            for (int t = 0; t < ships[i].length; t++) {
+                BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
+                if (reciever.getIndex() == id && playerCells[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()] == Cell.EMPTY) {
+                    boardCell.setColor(Color.CYAN);
+                }
+                if (gameState.isDestroyerDestroyed(id, i))
+                    boardCell.setColor(Color.RED);
+            }
+        }
+        ships = gameState.getPlayerFrigates(id);
+        for (int i = 0; i < ships.length; i++) {
+            for (int t = 0; t < ships[i].length; t++) {
+                BoardCell boardCell = board.getBoardCells()[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()];
+                if (reciever.getIndex() == id && playerCells[(int) ships[i][t].getFirst()][(int) ships[i][t].getSecond()] == Cell.EMPTY) {
+                    boardCell.setColor(Color.GREEN);
+                }
+                if (gameState.isFrigateDestroyed(id, i))
+                    boardCell.setColor(Color.RED);
+            }
+        }
+
         return board;
 
 //        Pair[][] player1Cruisers;
@@ -168,56 +180,56 @@ public class BattleShipGame implements Game {
         for (int i = 0; i < 1; i++) {
             if (gameState.isBattleshipDestroyed(id, i)) {
                 for (Pair pair : gameState.getPlayerBattleships(id)[i]) {
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()-1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() - 1, id);
                 }
             }
         }
         for (int i = 0; i < 2; i++) {
             if (gameState.isCruiserDestroyed(id, i)) {
                 for (Pair pair : gameState.getPlayerCruisers(id)[i]) {
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()-1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() - 1, id);
                 }
             }
         }
         for (int i = 0; i < 3; i++) {
             if (gameState.isDestroyerDestroyed(id, i)) {
                 for (Pair pair : gameState.getPlayerDestroyers(id)[i]) {
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()-1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() - 1, id);
                 }
             }
         }
         for (int i = 0; i < 4; i++) {
             if (gameState.isFrigateDestroyed(id, i)) {
                 for (Pair pair : gameState.getPlayerFrigates(id)[i]) {
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst(), (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()+1, (int)pair.getSecond()-1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond(), id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()+1, id);
-                    forceClick((int)pair.getFirst()-1, (int)pair.getSecond()-1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst(), (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() + 1, (int) pair.getSecond() - 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond(), id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() + 1, id);
+                    forceClick((int) pair.getFirst() - 1, (int) pair.getSecond() - 1, id);
                 }
             }
         }
